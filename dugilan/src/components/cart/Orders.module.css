@@ -1,0 +1,198 @@
+.dugilan__items {
+  display: flex;
+  flex-direction: column;
+  margin: 4.5rem 2rem;
+  width: 90%;
+}
+.dugilan__items h1 {
+  font-family: var(--font-family);
+  font-weight: normal;
+  margin-bottom: 4rem;
+  font-size: 35px;
+  line-height: 44px;
+  letter-spacing: -0.0068em;
+  color: #0b0b0c;
+}
+.dugilan__items-cart_labels-text {
+  background: rgba(15, 175, 233, 0.1);
+  border-radius: 10px 10px 0px 0px;
+  min-height: 50px;
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.dugilan__items-cart_labels-text p {
+  font-family: var(--font-family);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.0033em;
+  color: #0b0b0c;
+  max-width: 25%;
+}
+.dugilan__items-cart_labels-text :first-child {
+  margin-left: 1.8rem;
+}
+
+.dugilan__items-cart_labels-text :last-child {
+  margin-right: 2rem;
+}
+.dugilan__items-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+}
+.dugilan__items-item {
+  display: flex;
+  min-height: 80px;
+  width: 95%;
+  background-color: #fff;
+  align-items: center;
+  border: 1px solid #ebebeb;
+  justify-content: space-between;
+}
+.dugilan__items-item li {
+  list-style: none;
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 2rem;
+  font-family: var(--font-family);
+  font-size: 15px;
+  line-height: 24px;
+  color: #33334f;
+  margin-left: 3rem;
+}
+
+/* .dugilan__items-item_name {
+  width: 27%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+} */
+
+.dugilan__items-item li span {
+  border: none;
+  width: auto;
+  cursor: default;
+}
+.dugilan__item-quantity {
+  display: flex !important;
+  gap: 0.5rem;
+}
+.dugilan__item-quantity_button {
+  cursor: pointer;
+  padding: 0.2rem 1rem;
+  background: #0fafe9;
+  border: 1px solid #0fafe9;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-family: var(--font-family);
+  font-style: normal;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #ffffff;
+  outline: none;
+}
+.dugilan__item-quantity_button:hover {
+  background-color: rgba(15, 175, 233, 0.1);
+  color: #0fafe9;
+}
+.dugilan__items-item_name {
+  display: flex;
+}
+.dugilan__item-price {
+  display: none;
+}
+.dugilan__item-icon {
+  display: none;
+  cursor: pointer;
+}
+.dugilan__item-remove_icon {
+  cursor: pointer;
+}
+.dugilan__items-item_name img {
+  margin-right: 1rem;
+  width: 50px;
+  min-height: 30px;
+}
+.dugilan__items-cart_empty-text {
+  text-align: center;
+  margin: 5rem 0;
+  font-family: var(--font-family);
+  font-size: 23px;
+  letter-spacing: -0.0033em;
+  color: #0b0b0c;
+}
+@media screen and (max-width: 1200px) {
+  .dugilan__items-item {
+    align-items: center;
+    justify-content: space-evenly;
+    min-height: 200px;
+    flex: 1;
+  }
+  .dugilan__items-item_name img {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .dugilan__items-cart_labels-text {
+    justify-content: space-around;
+    padding: 0 1rem;
+  }
+  .dugilan__items-cart_labels-text :nth-child(2),
+  .dugilan__item-id,
+  .dugilan__items-cart_labels-text :nth-child(5),
+  .dugilan__items-item :nth-child(5),
+  .dugilan__item-id {
+    display: none !important;
+  }
+  .dugilan__items-item li {
+    margin: 0;
+    width: auto;
+  }
+  .dugilan__items-item_name {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 33%;
+    flex-wrap: wrap;
+  }
+  .dugilan__items-item_name div {
+    padding: 1rem 0;
+  }
+  .dugilan__item-price,
+  .dugilan__item-icon {
+    display: block;
+  }
+  .dugilan__items {
+    margin: 4.5rem;
+  }
+}
+@media screen and(max-width:768px) {
+  .dugilan__items-item {
+    justify-content: space-evenly;
+  }
+}
+@media screen and (max-width: 420px) {
+  .dugilan__item-quantity_button {
+    padding: 0.2rem 0.5rem;
+  }
+  .dugilan__items-item {
+    justify-content: space-between;
+  }
+  .dugilan__items-item_name p {
+    margin-left: 0.25rem;
+    text-align: center;
+  }
+  .dugilan__items-item li {
+    margin-right: 1.25rem;
+  }
+  .dugilan__items-cart_labels-text :first-child {
+    margin: 0;
+  }
+}

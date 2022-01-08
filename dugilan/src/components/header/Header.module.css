@@ -1,0 +1,112 @@
+.dugilan__header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  /* width: 100%; */
+  flex: 1;
+}
+.dugilan__header-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.dugilan__header-content h1 {
+  font-family: var(--font-family);
+  font-weight: bold;
+  font-size: 45px;
+  line-height: 54px;
+  letter-spacing: -0.0088em;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-bottom: 2.8rem;
+}
+.dugilan__header-content_form {
+  display: flex;
+  margin-bottom: 2.8rem;
+}
+.dugilan__header-content_form input {
+  /* flex: 2; */
+  padding: 1rem 4rem;
+  background: #ffffff;
+  border: 1px solid #ebebeb;
+  box-sizing: border-box;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+.dugilan__header-content_form button {
+  /* flex: 0.6; */
+  padding: 0 1rem;
+  background: #0fafe9;
+  border-radius: 0px 10px 10px 0px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: -0.18px;
+  text-transform: uppercase;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.dugilan__header-content_form button:hover {
+  background-color: rgba(11, 43, 54, 0.1);
+  color: #0fafe9;
+}
+.dugilan__header-content p {
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 29px;
+  letter-spacing: -0.0033em;
+  color: #656567;
+}
+.dugilan__header-image {
+  flex: 1;
+  display: flex;
+  margin-bottom: 5rem;
+  justify-content: center;
+  align-items: center;
+}
+.dugilan__header-image img {
+  width: 100%;
+  height: 100%;
+}
+@media screen and (max-width: 1055px) {
+  .dugilan__header {
+    flex-direction: column;
+  }
+  .dugilan__header-content {
+    text-align: center;
+    margin: 0 0 3rem;
+  }
+  .dugilan__header-content h1 {
+    font-size: 2.5rem;
+  }
+  .dugilan__header-content p {
+    font-size: 1rem;
+  }
+  .dugilan__header-image {
+    margin-top: 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 550px) {
+  .dugilan__header-content h1 {
+    font-size: 1.5rem;
+    line-height: 36px;
+  }
+  .dugilan__header-content p {
+    font-size: 0.75rem;
+  }
+  .dugilan__header-content_form input {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.75rem;
+  }
+  .dugilan__header-content_form button {
+    padding: 1rem 1rem;
+  }
+  .dugilan__header-content_form {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,42 @@
+.dugilan__errorModal {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 25%;
+  left: 35%;
+  width: 30%;
+  height: 30%;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 30;
+  animation: slide-down 300ms ease-out forwards;
+  align-items: center;
+  justify-content: center;
+}
+.dugilan__errorModal-close_icon {
+  position: absolute;
+  top: 5%;
+  right: 2%;
+  cursor: pointer;
+}
+.dugilan__errorModal-message {
+  font-family: var(--font-family);
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 44px;
+  text-align: center;
+  letter-spacing: -0.0068em;
+  color: red;
+  margin-bottom: 1rem;
+}
+.dugilan__errorModal button {
+  font-family: var(--font-family);
+  padding: 0.8rem 3rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #0fafe9;
+  cursor: pointer;
+  color: #fff;
+}

@@ -1,0 +1,38 @@
+.dugilan__notFound {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 7rem 7rem;
+  height: 30vh;
+  flex-direction: column;
+}
+.dugilan__notFound h1 {
+  font-family: var(--font-family);
+}
+.dugilan__notFound button {
+  margin-top: 2rem;
+  text-transform: uppercase;
+  font-family: var(--font-family);
+  border: none;
+  font-size: 20px;
+  color: #fff;
+  background-color: #0fafe9;
+  padding: 1rem 4rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.dugilan__notFound img {
+  height: 50px;
+  margin-top: 1rem;
+}
+@media screen and (max-width: 768px) {
+  .dugilan__notFound button {
+    padding: 1rem 2rem;
+    font-size: 15px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .dugilan__notFound h1 {
+    text-align: center;
+  }
+}

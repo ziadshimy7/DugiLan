@@ -1,0 +1,78 @@
+.dugilan__discount-content_container {
+  display: flex;
+}
+.dugilan__discount-content_form {
+  display: flex;
+  margin-bottom: 2.8rem;
+  margin-left: 2rem;
+}
+.dugilan__discount-content_form input {
+  flex: 0.3;
+  padding: 1rem 4rem;
+  background: #ffffff;
+  border: 1px solid #ebebeb;
+  box-sizing: border-box;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+  font-family: var(--font-family);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.18px;
+  outline: none;
+}
+.dugilan__discount-content_form button {
+  flex: 0.2;
+  padding: 1.2rem 2.5rem;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: -0.18px;
+  text-transform: uppercase;
+  color: #0fafe9;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: rgba(15, 175, 233, 0.1);
+  border-radius: 0px 10px 10px 0px;
+}
+.dugilan__discount-content_container p {
+  font-family: var(--font-family);
+  font-size: 12px;
+  margin-left: 1rem;
+  margin: 0.5rem 0 0 1rem;
+  width: 50%;
+  font-weight: bold;
+}
+@media screen and (max-width: 768px) {
+  .dugilan__discount-content_container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .dugilan__discount-content_form {
+    margin-left: 0.5rem;
+  }
+  .dugilan__discount-content_container p {
+    font-size: 14px;
+    margin: 0;
+  }
+}
+.dugilan__discount-content_form button:hover {
+  background-color: #0fafe9;
+  color: #fff;
+}
+@media screen and (max-width: 500px) {
+  .dugilan__discount-content_form button {
+    padding: 1.2rem 1rem;
+    font-size: 13px;
+  }
+  .dugilan__discount-content_form input {
+    padding: 1rem 1rem;
+    width: 200px;
+  }
+}

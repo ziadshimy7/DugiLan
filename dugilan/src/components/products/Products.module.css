@@ -1,0 +1,28 @@
+.dugilan__products {
+  display: flex;
+  position: relative;
+}
+.dugilan__products-categories_container {
+  display: flex;
+  justify-content: center;
+  flex: 0.6;
+}
+.dugilan__products-cards_container {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+}
+.dugilan__categories {
+  flex: 0.6;
+}
+@media screen and (max-width: 1024px) {
+  .dugilan__products {
+    flex-direction: column;
+  }
+}
+.dugilan__products-cards_container {
+  margin-top: 4rem;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}

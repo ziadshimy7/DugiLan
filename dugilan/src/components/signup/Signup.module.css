@@ -1,0 +1,139 @@
+.dugilan__signIn {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 20vh;
+  left: 5%;
+  width: 90%;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 30;
+  animation: slide-down 300ms ease-out forwards;
+}
+.dugilan__signIn-close_icon {
+  position: absolute;
+  top: 5%;
+  right: 2%;
+  cursor: pointer;
+}
+
+.dugilan__signIn h3 {
+  font-family: var(--font-family);
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 44px;
+  letter-spacing: -0.0068em;
+  color: #0b0b0c;
+  margin-bottom: 1rem;
+}
+.dugilan__signIn-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.dugilan__signIn-form_button {
+  display: flex;
+  width: 80%;
+  align-items: center;
+  height: 10vh;
+}
+.dugilan__signIn-form_button button {
+  padding: 1rem 3rem;
+  margin-right: 1rem;
+  background: #0fafe9;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: var(--font-family);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 22px;
+  text-align: center;
+  letter-spacing: -0.18px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.dugilan__signIn-form_button label {
+  font-family: var(--font-family);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 24px;
+
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.0033em;
+  color: #0b0b0c;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+.dugilan__signIn-error_text {
+  color: red;
+  font-family: var(--font-family);
+  margin-bottom: 1rem;
+}
+@media screen and (max-width: 420px) {
+  .dugilan__signIn {
+    align-items: center;
+    justify-content: center;
+  }
+  .dugilan__signIn {
+    width: 80%;
+  }
+  .dugilan__signIn-form_input {
+    width: 100%;
+  }
+  .dugilan__signIn h3 {
+    margin-left: 0;
+  }
+  .dugilan__signIn-form {
+    align-items: center;
+  }
+  .dugilan__signIn-form_button {
+    width: 100%;
+  }
+  .dugilan__signIn-form_button button {
+    padding: 1rem 1rem;
+    font-size: 11px;
+  }
+  .dugilan__signIn-form_button input {
+    font-size: 11px;
+  }
+}
+.dugilan__signIn-form_button input {
+  margin-right: 0.5rem;
+}
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (min-width: 768px) {
+  .dugilan__signIn {
+    width: 40rem;
+    left: calc(50% - 20rem);
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

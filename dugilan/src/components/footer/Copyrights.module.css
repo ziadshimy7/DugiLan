@@ -1,0 +1,28 @@
+.dugilan__copyrights-container {
+  display: flex;
+  margin: 1rem 1rem;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+}
+.dugilan__copyrights-container p {
+  margin-left: 3rem;
+  font-family: var(--font-family);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: -0.0033em;
+  color: #b9b9b9;
+}
+@media screen and (max-width: 768px) {
+  .dugilan__copyrights-container {
+    text-align: center;
+    flex-direction: column;
+    height: 70px;
+    align-items: center;
+  }
+  .dugilan__copyrights-container p {
+    margin-left: 0;
+  }
+}

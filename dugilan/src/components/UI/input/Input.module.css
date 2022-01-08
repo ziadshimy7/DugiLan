@@ -1,0 +1,25 @@
+.dugilan__signIn-label {
+  font-family: var(--font-family);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 21px;
+  letter-spacing: 0.0112em;
+  text-transform: uppercase;
+  color: #636363;
+}
+.dugilan__signIn-form_input {
+  padding: 0.75rem;
+  width: 60%;
+  margin: 1rem 0 2rem 0;
+  outline: none;
+  background: #ffffff;
+  border: 1px solid #b4adad;
+  box-sizing: border-box;
+  border-radius: 7px;
+}
+@media screen and (max-width: 420px) {
+  .dugilan__signIn-form_input {
+    width: 100%;
+  }
+}

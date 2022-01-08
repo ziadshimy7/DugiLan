@@ -1,0 +1,21 @@
+.dugilan__orders-container {
+  display: flex;
+}
+.dugilan__orders {
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+}
+@media screen and (max-width: 1024px) {
+  .dugilan__orders-container {
+    flex-direction: column;
+  }
+  .dugilan__orders-summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .dugilan__orders {
+    align-items: center;
+  }
+}

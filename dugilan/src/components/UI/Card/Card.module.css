@@ -1,0 +1,115 @@
+.dugilan__card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  width: 90%;
+}
+.dugilan__card img {
+  width: 100%;
+  margin: 0.5rem 0;
+  border-radius: 5px;
+}
+.dugilan__card-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.dugilan__card-content h4 {
+  font-family: var(--font-family);
+  font-size: 15px;
+  font-weight: normal;
+  line-height: 27px;
+  letter-spacing: -0.0035em;
+  color: #0b0b0c;
+  flex-grow: 1;
+}
+.dugilan__card-content p {
+  font-family: var(--font-family);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 21px;
+  letter-spacing: 0.0112em;
+  text-transform: uppercase;
+  color: #b9b9b9;
+  margin-bottom: 0.5rem;
+}
+.dugilan__card-content_price {
+  font-family: var(--font-family);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 27px;
+  letter-spacing: -0.0035em;
+  color: #0fafe9;
+}
+.dugilan__card-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.dugilan__card-buttons button {
+  padding: 0.2rem 0.5rem;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #0fafe9;
+  color: #fff;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 9px;
+  line-height: 22px;
+  letter-spacing: -0.18px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.dugilan__card-buttons button:hover {
+  background-color: rgba(11, 43, 54, 0.1);
+  color: #0fafe9;
+}
+.dugilan__card-add_to-cart {
+  margin-left: 1rem;
+}
+
+@media screen and (max-width: 1000px) {
+  .dugilan__card {
+    min-width: 60%;
+    max-width: 80%;
+  }
+  .dugilan__card-content_price {
+    font-size: 15px;
+  }
+  .dugilan__card-add_to-cart {
+    margin-left: 10rem;
+  }
+  .dugilan__card-buttons button {
+    font-size: 10px;
+  }
+}
+@media screen and (min-width: 1300px) {
+  .dugilan__card-add_to-cart {
+    margin-left: 5rem;
+  }
+}
+@media screen and (max-width: 420px) {
+  .dugilan__card-add_to-cart {
+    margin-left: 0;
+  }
+}
+/* ANIMATIONS */
+.dugilan__image-clone {
+  position: absolute;
+  width: 40px !important;
+  top: 0%;
+  right: 40%;
+  opacity: 1;
+  z-index: 15;
+}
+@keyframes zoom {
+  0% {
+    top: -100px;
+  }
+  100% {
+    top: -315px;
+  }
+}

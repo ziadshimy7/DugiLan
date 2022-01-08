@@ -1,0 +1,40 @@
+.dugilan__advertisment {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  width: 300px;
+  background: rgba(248, 197, 41, 0.12);
+  border-radius: 10px;
+}
+.dugilan__advertisment img {
+  width: 100%;
+  height: 100%;
+}
+.dugilan__advertisment-text {
+  margin: 1.5rem 1rem 3rem;
+  text-align: center;
+  font-family: var(--font-family);
+  font-size: 13px;
+  line-height: 24px;
+  /* or 160% */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.0033em;
+
+  /* color--secondary */
+
+  color: #33334f;
+}
+.dugilan__advertisment-company {
+  text-align: center;
+  font-family: var(--font-family);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: -0.0033em;
+  color: #9f9f9f;
+  margin-bottom: 0.5rem;
+}
