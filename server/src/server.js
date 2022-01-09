@@ -11,10 +11,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use("/cart", cartRoutes);
 const CONNECTION_URL =
-  "mongodb+srv://ziadshimy7:cocowawa123@dugilan.mgbrs.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+  "mongodb+srv://ziadshimy7:cocowawa123@dugilan.mgbrs.mongodb.net/Dugilan?retryWrites=true&w=majority";
 const PORT = process.env.PORT || 5000;
 mongoose
-  .connect("mongodb://localhost/Dugilan", {
+  .connect(CONNECTION_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
