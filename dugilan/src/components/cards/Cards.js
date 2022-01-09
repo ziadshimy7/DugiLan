@@ -41,7 +41,10 @@ const Cards = ({
         {!isLoading &&
           templates?.matches?.length > 0 &&
           templates?.matches
-            ?.slice(0, params ? API_ARRAY_SIZE : templates?.matches?.length)
+            ?.slice(
+              0,
+              params.term ? templates?.matches?.length : API_ARRAY_SIZE
+            )
             .map((template) => {
               return <Card key={template.id} template={template} />;
             })}
