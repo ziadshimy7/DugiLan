@@ -4,7 +4,7 @@ import { useAuth } from "../../../contexts/AuthContext";
 import { useDispatch } from "react-redux";
 import { addItemToCart } from "../../../store/actions/cartActions";
 import { cartURL } from "../../index";
-const Card = ({ template, states }) => {
+const Card = ({ template }) => {
   const dispatch = useDispatch();
   const { currentUser } = useAuth();
   const body = {
@@ -45,11 +45,7 @@ const Card = ({ template, states }) => {
             >
               Add to cart
             </button>
-            <button
-              onClick={() => states.setLikes((prevState) => prevState + 1)}
-            >
-              Like product
-            </button>
+            <button>Like product</button>
           </div>
         </div>
       </div>

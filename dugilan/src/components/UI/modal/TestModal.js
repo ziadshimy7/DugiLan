@@ -1,27 +1,25 @@
 import React from "react";
-import styles from "./ErrorModal.module.css";
 import { AiOutlineClose } from "react-icons/ai";
 import BackdropOverlay from "../backdrop/BackdropOverlay";
-import { useDispatch } from "react-redux";
-import { resetItemExistsError } from "../../../store/actions/cartActions";
-const ErrorModal = () => {
-  const dispatch = useDispatch();
+import styles from "./ErrorModal.module.css";
+const TestModal = ({ setModalHandler }) => {
   return (
     <>
       <BackdropOverlay />
       <div className={`${styles["dugilan__errorModal"]}`}>
         <h3 className={styles["dugilan__errorModal-message"]}>
-          Item already in cart.
+          Thanks for subscribing to our news letter! An email has been sent to
+          your email address to confirm this subscription.
         </h3>
         <AiOutlineClose
           size="25"
           className={styles["dugilan__errorModal-close_icon"]}
-          onClick={() => dispatch(resetItemExistsError())}
+          onClick={() => setModalHandler(false)}
         />
-        <button onClick={() => dispatch(resetItemExistsError())}>Ok</button>
+        <button onClick={() => setModalHandler(false)}>Ok</button>
       </div>
     </>
   );
 };
 
-export default ErrorModal;
+export default TestModal;

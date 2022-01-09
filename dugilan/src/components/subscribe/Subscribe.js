@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import styles from "./Subscribe.module.css";
+import TestModal from "../UI/modal/TestModal";
 const Subscribe = () => {
+  const [showModal, setShowModal] = useState(false);
   const sendEmail = async (e) => {
     e.preventDefault();
-    console.log(e.target);
     try {
       await emailjs.sendForm(
         "service_znb5ogg",
@@ -13,7 +14,7 @@ const Subscribe = () => {
         "user_80SXia7QqSRx3v4m2Q1YV"
       );
       e.target.reset();
-    } catch (err) { 
+    } catch (err) {
       console.error(err.message);
     }
   };
@@ -23,8 +24,16 @@ const Subscribe = () => {
       <p>Get all the latest information on Events, Sales and Offers.</p>
       <form onSubmit={sendEmail} className={styles["dugilan__subscribe-input"]}>
         <input name="email" type="email" placeholder={`Email Address`} />
-        <button type="submit">Subscribe</button>
+        <button
+          onClick={() => {
+            setShowModal(true);
+          }}
+          type="submit"
+        >
+          Subscribe
+        </button>
       </form>
+      {showModal && <TestModal setModalHandler={setShowModal} />}
     </div>
   );
 };
