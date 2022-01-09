@@ -12,11 +12,11 @@ const Pagination = ({
   for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
     pageNumbers.push(i);
   }
-  console.log(pageNumbers.length);
   return (
     <ul className={styles["dugilan__pagination"]}>
       <button
-        onClick={() => {
+        onClick={(e) => {
+          e.preventDefault();
           if (currentPage === pageNumbers[0]) {
             setCurrentPage(pageNumbers.length);
             return;
@@ -25,7 +25,7 @@ const Pagination = ({
         }}
         className={styles["dugilan__pagination-icon"]}
       >
-        <GrFormPrevious color="#fff" size={18} />
+        <GrFormPrevious size={18} />
       </button>
       {pageNumbers.map((number) => {
         return (
@@ -43,7 +43,9 @@ const Pagination = ({
         );
       })}
       <button
-        onClick={() => {
+        onClick={(e) => {
+          e.preventDefault();
+
           if (currentPage === pageNumbers.length) {
             setCurrentPage(pageNumbers[0]);
             return;
@@ -52,7 +54,7 @@ const Pagination = ({
         }}
         className={styles["dugilan__pagination-icon"]}
       >
-        <GrFormNext color="green" size={18} />
+        <GrFormNext size={18} />
       </button>
     </ul>
   );

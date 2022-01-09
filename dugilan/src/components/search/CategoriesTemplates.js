@@ -6,12 +6,13 @@ import styles from "./CategoriesTemplates.module.css";
 import Pagination from "../UI/pagination/Pagination";
 import GridLoader from "react-spinners/GridLoader";
 const CategoriesTemplates = () => {
+  let params = useParams();
   const [templates, setTemplates] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
   const { getRequest: getTemplates } = useHTTP(
-    `${envatoUrl}Marketing`,
+    `${envatoUrl}${params.term || "marketing"}`,
     setTemplates
   );
   const loadTemplates = useCallback(async () => {
@@ -33,7 +34,6 @@ const CategoriesTemplates = () => {
     };
   }, [loadTemplates]);
 
-  let params = useParams();
   const lastPostIndex = currentPage * itemsPerPage;
   const firstPostIndex = lastPostIndex - itemsPerPage;
   const currentPosts = templates?.matches?.slice(firstPostIndex, lastPostIndex);
