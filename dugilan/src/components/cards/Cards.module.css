@@ -12,6 +12,7 @@
   .dugilan__cards-container {
     grid-template-columns: 1fr;
     place-items: center;
+    gap: 1.5rem;
   }
   .dugilan__cards {
     width: auto;

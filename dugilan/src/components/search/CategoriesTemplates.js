@@ -9,7 +9,7 @@ const CategoriesTemplates = () => {
   const [templates, setTemplates] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 9;
+  const itemsPerPage = 6;
   const { getRequest: getTemplates } = useHTTP(
     `${envatoUrl}Marketing`,
     setTemplates
@@ -69,6 +69,8 @@ const CategoriesTemplates = () => {
           itemsPerPage={itemsPerPage}
           totalItems={templates?.matches?.length}
           paginate={paginate}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
         />
       </div>
       <Footer />

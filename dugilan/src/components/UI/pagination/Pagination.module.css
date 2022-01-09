@@ -1,12 +1,13 @@
 .dugilan__pagination {
   display: flex;
-  margin-top: 4rem;
+  margin: 4rem 0 4rem;
   list-style: none;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
 }
 .dugilan__pagination li {
-  padding: 3rem 3rem;
+  padding: 0 4rem 0;
 }
 .dugilan__pagination li button {
   cursor: pointer;
@@ -22,7 +23,26 @@
   color: #ffffff;
   outline: none;
 }
-.dugilan__pagination li button:hover {
+.dugilan__pagination li button:hover,
+.dugilan__pagination-icon:hover {
   background-color: rgba(15, 175, 233, 0.1);
   color: #0fafe9;
+}
+.dugilan__pagination li button.active {
+  background-color: rgba(15, 175, 233, 0.1) !important;
+  color: #0fafe9 !important;
+}
+.dugilan__pagination-icon {
+  cursor: pointer;
+  padding: 0.4rem 1.75rem;
+  background: #0fafe9;
+  border: 1px solid #0fafe9;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-family: var(--font-family);
+  font-style: normal;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #ffffff;
+  outline: none;
 }
