@@ -46,3 +46,17 @@
   color: #ffffff;
   outline: none;
 }
+@media screen and (max-width: 1250px) {
+  .dugilan__pagination li {
+    padding: 0 0.5rem 0;
+  }
+}
+@media screen and (max-width: 640px) {
+  .dugilan__pagination li,
+  .dugilan__pagination-icon {
+    margin-top: 1rem;
+  }
+  .dugilan__pagination-icon {
+    padding: 0.4rem 1.25rem;
+  }
+}
