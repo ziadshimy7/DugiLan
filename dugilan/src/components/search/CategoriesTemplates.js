@@ -4,6 +4,7 @@ import { Cards, envatoUrl, Footer, Navbar, token } from "..";
 import useHTTP from "../../hooks/useHTTP";
 import styles from "./CategoriesTemplates.module.css";
 import Pagination from "../UI/pagination/Pagination";
+import GridLoader from "react-spinners/GridLoader";
 const CategoriesTemplates = () => {
   const [templates, setTemplates] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -42,7 +43,18 @@ const CategoriesTemplates = () => {
   return (
     <>
       <Navbar />
-
+      {isLoading && (
+        <div className="overlay">
+          <div className="loader">
+            <GridLoader
+              css={"loader"}
+              size="20px"
+              color="#0fafe9"
+              loading={isLoading}
+            />
+          </div>
+        </div>
+      )}
       <div className={styles["dugilan__search"]}>
         <div className={styles["dugilan__search-heading"]}>
           <h1 className="gradient__text">Search results</h1>
