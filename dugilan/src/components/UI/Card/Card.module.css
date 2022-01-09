@@ -91,7 +91,7 @@
     margin-left: 5rem;
   }
 }
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 500px) {
   .dugilan__card-add_to-cart {
     margin-left: 0;
   }

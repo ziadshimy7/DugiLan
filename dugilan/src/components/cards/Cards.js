@@ -1,46 +1,16 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React from "react";
 import styles from "./Cards.module.css";
-import { API_ARRAY_SIZE, envatoUrl, token } from "../index";
-import useHTTP from "../../hooks/useHTTP";
+import { API_ARRAY_SIZE } from "../index";
 import Card from "../UI/Card/Card";
 import { useParams } from "react-router-dom";
-const Cards = ({
-  isLoading,
-  setIsLoading,
-  searchTerm = "marketing",
-  searchResultsCount,
-}) => {
+const Cards = ({ templates, isLoading }) => {
   let params = useParams();
-  const [templates, setTemplates] = useState([]);
-  const { getRequest: getTemplates } = useHTTP(
-    `${envatoUrl}${searchTerm}`,
-    setTemplates
-  );
-  console.log(templates);
-  const loadTemplates = useCallback(async () => {
-    setIsLoading(true);
-    await getTemplates({
-      requestHeader: {
-        Authorization: `Bearer ${token}`,
-      },
-      requestParams: "",
-    });
-
-    setIsLoading(false);
-  }, [setIsLoading, getTemplates]);
-  useEffect(() => {
-    let isSubscribed = true;
-    if (isSubscribed) loadTemplates();
-    return () => {
-      isSubscribed = false;
-    };
-  }, [loadTemplates]);
   return (
     <>
       <div className={styles["dugilan__cards-container"]}>
         {!isLoading &&
-          templates?.matches?.length > 0 &&
-          templates?.matches
+          templates?.length > 0 &&
+          templates
             ?.slice(
               0,
               params.term ? templates?.matches?.length : API_ARRAY_SIZE
