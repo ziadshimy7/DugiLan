@@ -7,7 +7,7 @@ import { cartURL } from "../../index";
 const Card = ({ template }) => {
   const dispatch = useDispatch();
   const { currentUser } = useAuth();
-  const body = {
+  const postRequestBody = {
     id: template.id.toString(),
     name: template.name.split(" ")[0],
     username: currentUser?.email,
@@ -18,7 +18,7 @@ const Card = ({ template }) => {
 
   const onAddToCartHandler = async (e) => {
     e.preventDefault();
-    dispatch(addItemToCart(body, cartURL));
+    dispatch(addItemToCart(postRequestBody, cartURL));
   };
 
   return (

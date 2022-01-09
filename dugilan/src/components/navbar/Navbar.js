@@ -79,7 +79,7 @@ const Navbar = () => {
             />
           </Link>
           <div className={styles["dugilan__navbar-links_cart-icon"]}>
-            <p>{cartState?.cartItems?.length}</p>
+            <p>{cartState?.cartItems?.length || 0}</p>
           </div>
         </div>
         {currentUser ? (
@@ -125,7 +125,7 @@ const Navbar = () => {
                     />
                   </Link>
                   <div className={styles["dugilan__navbar-menu-add-to-cart"]}>
-                    <p>{cartState?.cartItems?.length}</p>
+                    <p>{cartState?.cartItems?.length || 0}</p>
                   </div>
                 </div>
                 {currentUser ? (

@@ -1,6 +1,9 @@
 const initialState = {
   cartItems: [],
-  error: false,
+  error: {
+    status: false,
+    message: "",
+  },
   totalAmount: 0,
 };
 
@@ -9,7 +12,7 @@ const reducer = (state = initialState, action) => {
     case "FETCH_ALL":
       return {
         cartItems: action.payload.data,
-        error: action.payload.error,
+        error: state.error,
         totalAmount: action.payload.data
           .map((item) => item.price)
           .reduce((acc, curr) => {
@@ -19,7 +22,7 @@ const reducer = (state = initialState, action) => {
     case "CREATE":
       return {
         cartItems: [...state.cartItems, action.payload.data],
-        error: action.payload.error,
+        error: state.error,
         totalAmount: state.totalAmount + action.payload.data.price,
       };
 
@@ -29,7 +32,7 @@ const reducer = (state = initialState, action) => {
         cartItems: state.cartItems.filter(
           (item) => item._id !== removedItem._id
         ),
-        error: action.payload.error,
+        error: state.error,
         totalAmount: state.totalAmount - removedItem.price,
       };
     case "ITEM_EXISTS":
@@ -38,10 +41,19 @@ const reducer = (state = initialState, action) => {
         error: action.payload.error,
         totalAmount: state.totalAmount,
       };
-    case "RESET_ERROR":
+    case "NOT_LOGGED_IN":
       return {
         cartItems: state.cartItems,
         error: action.payload.error,
+        totalAmount: state.totalAmount,
+      };
+    case "RESET_ERROR":
+      return {
+        cartItems: state.cartItems,
+        error: {
+          status: action.payload.status,
+          message: action.payload.message,
+        },
         totalAmount: state.totalAmount,
       };
     case "INCREASE_QUANTITY":

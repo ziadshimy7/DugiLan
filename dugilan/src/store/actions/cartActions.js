@@ -15,10 +15,30 @@ export const getCart = (currentUser) => async (dispatch) => {
 };
 export const addItemToCart = (body) => async (dispatch) => {
   try {
+    if (!body.username) {
+      dispatch({
+        type: "NOT_LOGGED_IN",
+        payload: {
+          error: {
+            status: true,
+            message: "Please log in to add items to your cart.",
+          },
+        },
+      });
+      return;
+    }
     const { data } = await postRequest(cartURL, body);
     console.log(data);
     if (data?.message === "ITEM_EXISTS") {
-      dispatch({ type: "ITEM_EXISTS", payload: { error: true } });
+      dispatch({
+        type: "ITEM_EXISTS",
+        payload: {
+          error: {
+            status: true,
+            message: "Item already in cart.",
+          },
+        },
+      });
       return;
     }
     dispatch({ type: "CREATE", payload: { data, error: false } });
@@ -36,7 +56,15 @@ export const deleteItemFromCart = (id) => async (dispatch) => {
 };
 export const resetItemExistsError = () => (dispatch) => {
   try {
-    dispatch({ type: "RESET_ERROR", payload: { error: false } });
+    dispatch({
+      type: "RESET_ERROR",
+      payload: {
+        error: {
+          status: false,
+          message: "",
+        },
+      },
+    });
   } catch (error) {
     console.log(error);
   }
