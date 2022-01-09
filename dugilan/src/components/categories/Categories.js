@@ -9,74 +9,92 @@ import { MdOutlineDashboardCustomize } from "react-icons/md";
 import Subscribe from "../subscribe/Subscribe";
 import Analytics from "../analytics/Analytics";
 import Advertisment from "../ad/Advertisment";
+import { Link } from "react-router-dom";
 
 const Categories = () => {
+  const browseCategoriesLinks = [
+    {
+      icon: (
+        <BsHouseDoor
+          className={styles["dugilan__categories-link_icon"]}
+          size={14}
+        />
+      ),
+      link: <Link to="/">Home</Link>,
+    },
+    {
+      icon: (
+        <FaWordpressSimple
+          className={styles["dugilan__categories-link_icon"]}
+          size={14}
+        />
+      ),
+      link: <Link to="/search/wordpress">Wordpress Themes</Link>,
+    },
+    {
+      icon: (
+        <FiShoppingCart
+          className={styles["dugilan__categories-link_icon"]}
+          size={14}
+        />
+      ),
+      link: <Link to="/search/ecommerce">Ecommerce Templates</Link>,
+    },
+    {
+      icon: (
+        <GoDeviceDesktop
+          className={styles["dugilan__categories-link_icon"]}
+          size={14}
+        />
+      ),
+      link: <Link to="/search/marketing">Marketing Templates</Link>,
+    },
+    {
+      icon: (
+        <GrDevice
+          className={styles["dugilan__categories-link_icon"]}
+          size={14}
+        />
+      ),
+
+      link: <Link to="/search/cms">CMS Templates</Link>,
+    },
+    {
+      icon: (
+        <MdOutlineDashboardCustomize
+          className={styles["dugilan__categories-link_icon"]}
+          size={14}
+        />
+      ),
+      link: <Link to="/search/site">Site Templates</Link>,
+    },
+    {
+      icon: (
+        <BsPencilSquare
+          className={styles["dugilan__categories-link_icon"]}
+          size={14}
+        />
+      ),
+      link: <Link to="/search/blogging">Blogging</Link>,
+    },
+  ];
   return (
     <div className={styles["dugilan__main-container"]}>
       <div className={`${styles["dugilan__categories"]}`}>
         <h2>Browse Categories</h2>
-        <div className={styles["dugilan__categories-links_container"]}>
-          <div className={styles["dugilan__categories-link"]}>
-            <BsHouseDoor
-              size={14}
-              className={styles["dugilan__categories-link_icon"]}
-            />
-            <a href="#home">Home</a>
-          </div>
-          <hr />
-          <div className={styles["dugilan__categories-link"]}>
-            <FaWordpressSimple
-              size={14}
-              className={styles["dugilan__categories-link_icon"]}
-            />
-            <a href="#home">Wordpress Themes</a>
-          </div>
-          <hr />
-
-          <div className={styles["dugilan__categories-link"]}>
-            <FiShoppingCart
-              size={14}
-              className={styles["dugilan__categories-link_icon"]}
-            />
-            <a href="#home">eCommerce Templates</a>
-          </div>
-          <hr />
-
-          <div className={styles["dugilan__categories-link"]}>
-            <GrDevice
-              size={14}
-              className={styles["dugilan__categories-link_icon"]}
-            />
-            <a href="#home">Marketing Templates</a>
-          </div>
-          <hr />
-
-          <div className={styles["dugilan__categories-link"]}>
-            <MdOutlineDashboardCustomize
-              size={14}
-              className={styles["dugilan__categories-link_icon"]}
-            />
-            <a href="#home">CMS Templates</a>
-          </div>
-          <hr />
-
-          <div className={styles["dugilan__categories-link"]}>
-            <GoDeviceDesktop
-              size={14}
-              className={styles["dugilan__categories-link_icon"]}
-            />
-            <a href="#home">Site Templates</a>
-          </div>
-          <hr />
-
-          <div className={styles["dugilan__categories-link"]}>
-            <BsPencilSquare
-              size={14}
-              className={styles["dugilan__categories-link_icon"]}
-            />
-            <a href="#home">Blogging</a>
-          </div>
-        </div>
+        <ul className={styles["dugilan__categories-links_container"]}>
+          {browseCategoriesLinks.map((link, index) => {
+            return (
+              <div key={index}>
+                <li className={styles["dugilan__categories-link"]}>
+                  {link.icon}
+                  {link.link}
+                </li>
+                {index !== 6 && <hr />}
+              </div>
+            );
+          })}
+        </ul>
       </div>
       <Subscribe />
       <Analytics />
