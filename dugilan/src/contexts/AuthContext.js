@@ -17,12 +17,12 @@ export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState();
   const signup = async (username, password) => {
     const user = await createUserWithEmailAndPassword(auth, username, password);
-    console.log(user);
+    setCurrentUser(user);
     return user;
   };
   const login = async (username, password) => {
     const user = await signInWithEmailAndPassword(auth, username, password);
-    console.log("Login successful");
+    setCurrentUser(user);
     return user;
   };
   const logout = async (username, password) => {
@@ -37,8 +37,9 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
-      return unsubscribe;
-    }, []);
-  });
+    });
+
+    return unsubscribe;
+  }, []);
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

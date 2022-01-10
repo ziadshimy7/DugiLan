@@ -7,6 +7,7 @@ const Input = (props) => {
         {props.label}
       </label>
       <input
+        autoComplete="on"
         className={styles["dugilan__signIn-form_input"]}
         id={props.id}
         type={props.type}

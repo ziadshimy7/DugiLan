@@ -86,7 +86,7 @@ const SignInModal = ({ modalHandler, signupToggleHandler }) => {
           <button onClick={() => {}} disabled={!formIsValid}>
             Login
           </button>
-          <input id="checkbox1" type="checkbox" />
+          <input onClick={(e) => {}} id="checkbox1" type="checkbox" />
           <label htmlFor="checkbox1">Remember me</label>
         </div>
         <div className={styles["dugilan__modal-signup"]}>
