@@ -23,7 +23,7 @@ const Subscribe = () => {
       <h3>Subscribe Newsletter</h3>
       <p>Get all the latest information on Events, Sales and Offers.</p>
       <form onSubmit={sendEmail} className={styles["dugilan__subscribe-input"]}>
-        <input name="email" type="email" placeholder={`Email Address`} />
+        <input name="email" type="email" placeholder=" Email Address " />
         <button
           onClick={() => {
             setShowModal(true);
