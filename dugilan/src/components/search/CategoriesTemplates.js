@@ -5,6 +5,8 @@ import useHTTP from "../../hooks/useHTTP";
 import styles from "./CategoriesTemplates.module.css";
 import Pagination from "../UI/pagination/Pagination";
 import GridLoader from "react-spinners/GridLoader";
+import ErrorModal from "../UI/modal/ErrorModal";
+import { useSelector } from "react-redux";
 const CategoriesTemplates = () => {
   let params = useParams();
   // * STATE LOGIC *//
@@ -13,6 +15,7 @@ const CategoriesTemplates = () => {
   const [optionsValue, setOptionsValue] = useState("Ascending");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
+  const cartState = useSelector((state) => state.cartReducer);
   const { getRequest: getTemplates } = useHTTP(
     `${envatoUrl}${params.term || "marketing"}`,
     setTemplates
@@ -115,6 +118,7 @@ const CategoriesTemplates = () => {
         />
       </div>
       <Footer />
+      {cartState?.error?.status && <ErrorModal />}
     </>
   );
 };

@@ -15,7 +15,6 @@ const Card = ({ template }) => {
     quantity: 1,
     image: template.previews.landscape_preview.landscape_url,
   };
-
   const onAddToCartHandler = async (e) => {
     e.preventDefault();
     dispatch(addItemToCart(postRequestBody, cartURL));
