@@ -25,7 +25,6 @@ const Orders = () => {
     items.splice(result.destination.index, 0, reorderedItems);
     setOrders(items);
   };
-  console.log(orders);
   return (
     <DragDropContext onDragEnd={handleOnDragEnd}>
       <div className={styles["dugilan__items"]}>

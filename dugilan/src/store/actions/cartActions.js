@@ -1,4 +1,9 @@
-import { getRequest, postRequest, deleteRequest } from "../../api/requests";
+import {
+  getRequest,
+  postRequest,
+  deleteRequest,
+  updateRequest,
+} from "../../api/requests";
 import { cartURL } from "../../components";
 export const getCart = (currentUser) => async (dispatch) => {
   try {
@@ -89,12 +94,13 @@ export const resetItemExistsError = () => (dispatch) => {
     console.log(error);
   }
 };
-export const increaseItemQuantity = (item) => (dispatch) => {
+export const increaseItemQuantity = (item) => async (dispatch) => {
   try {
+    const data = await updateRequest(cartURL, item);
     dispatch({
       type: "INCREASE_QUANTITY",
       payload: {
-        item,
+        data,
         error: {
           status: false,
           message: "",

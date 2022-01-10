@@ -14,7 +14,7 @@ const reducer = (state = initialState, action) => {
         cartItems: action.payload.data,
         error: action.payload.error,
         totalAmount: action.payload.data
-          .map((item) => item.price)
+          .map((item) => item.price * item.quantity)
           .reduce((acc, curr) => {
             return curr + acc;
           }, 0),
@@ -28,12 +28,13 @@ const reducer = (state = initialState, action) => {
 
     case "DELETE":
       const removedItem = action.payload.data[0];
+      const removedItemTotalPrice = removedItem.price * removedItem.quantity;
       return {
         cartItems: state.cartItems.filter(
           (item) => item._id !== removedItem._id
         ),
         error: action.payload.error,
-        totalAmount: state.totalAmount - removedItem.price,
+        totalAmount: state.totalAmount - removedItemTotalPrice,
       };
     case "ITEM_EXISTS":
       return {
@@ -54,17 +55,23 @@ const reducer = (state = initialState, action) => {
         totalAmount: state.totalAmount,
       };
     case "INCREASE_QUANTITY":
-      const removedItemIndex = state.cartItems.indexOf(action.payload);
-      const updatedItem = state.cartItems[removedItemIndex];
+      const currentItem = action.payload.data[0];
+      const currentItemIndex = state.cartItems.findIndex(
+        (item) => item._id === currentItem._id
+      );
+      const updatedItem = state.cartItems[currentItemIndex];
       updatedItem.quantity++;
-      updatedItem.price *= updatedItem.quantity;
-
+      let updatedItems = [...state.cartItems];
+      updatedItems[currentItemIndex] = updatedItem;
+      const updatedTotalAmount = updatedItems
+        .map((item) => item.price * item.quantity)
+        .reduce((acc, curr) => {
+          return curr + acc;
+        }, 0);
       return {
-        cartItems: [
-          ...state.cartItems.filter((item) => item._id !== action.payload._id),
-          updatedItem,
-        ],
+        cartItems: updatedItems,
         error: false,
+        totalAmount: updatedTotalAmount,
       };
     case "DECREASE_QUANTITY":
       return;
