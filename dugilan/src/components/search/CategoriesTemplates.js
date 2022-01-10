@@ -7,6 +7,7 @@ import Pagination from "../UI/pagination/Pagination";
 import GridLoader from "react-spinners/GridLoader";
 const CategoriesTemplates = () => {
   let params = useParams();
+  // * STATE LOGIC *//
   const [templates, setTemplates] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [optionsValue, setOptionsValue] = useState("Ascending");
@@ -16,6 +17,7 @@ const CategoriesTemplates = () => {
     `${envatoUrl}${params.term || "marketing"}`,
     setTemplates
   );
+
   const loadTemplates = useCallback(async () => {
     setIsLoading(true);
     await getTemplates({
@@ -27,14 +29,28 @@ const CategoriesTemplates = () => {
 
     setIsLoading(false);
   }, [setIsLoading, getTemplates]);
+  // * ENDING OF STATE LOGIC *//
+  // * SORTING AND PAGINATION LOGIC *//
+  const sortedItems = (sortBy) => {
+    if (sortBy === "Ascending")
+      return templates?.matches?.sort((a, b) => a.name.localeCompare(b.name));
+    if (sortBy === "Descending") return templates?.matches?.sort()?.reverse();
+    if (sortBy === "Price")
+      return templates?.matches?.sort(
+        (a, b) => a.price_cents / 100 - b.price_cents / 100
+      );
+    return templates?.matches;
+  };
   const lastPostIndex = currentPage * itemsPerPage;
   const firstPostIndex = lastPostIndex - itemsPerPage;
-  const currentPosts = templates?.matches?.slice(firstPostIndex, lastPostIndex);
-  const sortedItems = (sortBy) => {
-    if (sortBy === "Ascending") return currentPosts?.sort();
-    if (sortBy === "Descending") return currentPosts?.sort().reverse();
-    else return currentPosts?.name;
+  const currentItems = sortedItems(optionsValue)?.slice(
+    firstPostIndex,
+    lastPostIndex
+  );
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
   };
+  // * ENDING OF SORTING AND PAGINATION LOGIC
   useEffect(() => {
     let isSubscribed = true;
     if (isSubscribed) loadTemplates();
@@ -43,12 +59,6 @@ const CategoriesTemplates = () => {
     };
   }, [loadTemplates]);
 
-  const paginate = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
-  console.log(optionsValue);
-  const sortedItemsFinal = sortedItems(optionsValue);
-  console.log(sortedItemsFinal);
   return (
     <>
       <Navbar />
@@ -77,7 +87,7 @@ const CategoriesTemplates = () => {
               id="sort"
             >
               <option value="Ascending">Ascending</option>
-              <option value="price">Price</option>
+              <option value="Price">Price</option>
               <option value="Descending">Descending</option>
             </select>
           </div>
@@ -86,7 +96,7 @@ const CategoriesTemplates = () => {
           searchTerm={params.term}
           isLoading={isLoading}
           setIsLoading={setIsLoading}
-          templates={sortedItemsFinal}
+          templates={currentItems}
         />
         <Pagination
           itemsPerPage={itemsPerPage}

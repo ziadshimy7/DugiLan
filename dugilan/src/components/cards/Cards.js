@@ -5,6 +5,7 @@ import Card from "../UI/Card/Card";
 import { useParams } from "react-router-dom";
 const Cards = ({ templates, isLoading }) => {
   let params = useParams();
+  console.log(templates);
   return (
     <>
       <div className={styles["dugilan__cards-container"]}>
