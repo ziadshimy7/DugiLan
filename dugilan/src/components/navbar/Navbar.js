@@ -118,7 +118,9 @@ const Navbar = () => {
                     <p>{likes}</p>
                   </div>
                 </div>
-                <div className={styles["dugilan__navbar-menu_icon-container"]}>
+                <div
+                  className={`${styles["dugilan__navbar-menu_icon-container"]} ${styles["dugilan__shake-animation"]}`}
+                >
                   <Link to="cart">
                     <FiShoppingBag
                       className={styles["dugilan__navbar-menu-sign_icon"]}
