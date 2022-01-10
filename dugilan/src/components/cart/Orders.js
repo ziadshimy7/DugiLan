@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   deleteItemFromCart,
   increaseItemQuantity,
+  decreaseItemQuantity,
 } from "../../store/actions/cartActions";
 const Orders = () => {
   const dispatch = useDispatch();
@@ -78,6 +79,9 @@ const Orders = () => {
                           </li>
                           <li className={styles["dugilan__item-quantity"]}>
                             <button
+                              onClick={() =>
+                                dispatch(decreaseItemQuantity(item))
+                              }
                               className={
                                 styles["dugilan__item-quantity_button"]
                               }

@@ -96,7 +96,7 @@ export const resetItemExistsError = () => (dispatch) => {
 };
 export const increaseItemQuantity = (item) => async (dispatch) => {
   try {
-    const data = await updateRequest(cartURL, item);
+    const data = await updateRequest(cartURL, item, "INCREASE");
     dispatch({
       type: "INCREASE_QUANTITY",
       payload: {
@@ -110,4 +110,30 @@ export const increaseItemQuantity = (item) => async (dispatch) => {
   } catch (error) {
     console.log(error);
   }
+};
+export const decreaseItemQuantity = (item) => async (dispatch) => {
+  if (item.quantity === 1) {
+    dispatch({
+      type: "DELETE",
+      payload: {
+        data: [item],
+        error: {
+          status: false,
+          message: "",
+        },
+      },
+    });
+    return;
+  }
+  const data = await updateRequest(cartURL, item, "DECREASE");
+  dispatch({
+    type: "DECREASE_QUANTITY",
+    payload: {
+      data,
+      error: {
+        status: false,
+        message: "",
+      },
+    },
+  });
 };

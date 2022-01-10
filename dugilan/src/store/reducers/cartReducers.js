@@ -74,7 +74,32 @@ const reducer = (state = initialState, action) => {
         totalAmount: updatedTotalAmount,
       };
     case "DECREASE_QUANTITY":
-      return;
+      const [currentCartItem] = action.payload.data;
+      console.log(currentCartItem);
+      const currentCartItemIndex = state.cartItems.findIndex(
+        (item) => item._id === currentCartItem._id
+      );
+      let updatedCartItems;
+      const updatedCartItem = state.cartItems[currentCartItemIndex];
+      console.log(updatedCartItem._id, updatedCartItem.quantity);
+      console.log(state.cartItems);
+      if (updatedCartItem.quantity === 1) {
+        updatedCartItems = state.cartItems.filter(
+          (item) => item._id !== updatedCartItem._id
+        );
+      } else updatedCartItem.quantity--;
+      updatedCartItems = [...state.cartItems];
+      updatedCartItems[currentCartItemIndex] = updatedCartItem;
+      const updatedCartTotalAmount = updatedCartItems
+        .map((item) => item.price * item.quantity)
+        .reduce((acc, curr) => {
+          return curr + acc;
+        }, 0);
+      return {
+        cartItems: updatedCartItems,
+        error: false,
+        totalAmount: updatedCartTotalAmount,
+      };
 
     default:
       return state.cartItems;

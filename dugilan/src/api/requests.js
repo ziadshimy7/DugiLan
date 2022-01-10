@@ -28,11 +28,12 @@ export const deleteRequest = async (url, id) => {
     console.log(error);
   }
 };
-export const updateRequest = async (url, item) => {
+export const updateRequest = async (url, item, method) => {
   try {
     const { data } = await axios.put(url, {
       id: item?._id,
       quantity: item?.quantity,
+      method,
     });
     return data;
   } catch (error) {
