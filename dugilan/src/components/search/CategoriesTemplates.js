@@ -34,10 +34,17 @@ const CategoriesTemplates = () => {
   const sortedItems = (sortBy) => {
     if (sortBy === "Ascending")
       return templates?.matches?.sort((a, b) => a.name.localeCompare(b.name));
-    if (sortBy === "Descending") return templates?.matches?.sort()?.reverse();
-    if (sortBy === "Price")
+    if (sortBy === "Descending")
+      return templates?.matches
+        ?.sort((a, b) => a.name.localeCompare(b.name))
+        ?.reverse();
+    if (sortBy === "Cheapest")
       return templates?.matches?.sort(
         (a, b) => a.price_cents / 100 - b.price_cents / 100
+      );
+    if (sortBy === "Expensive")
+      return templates?.matches?.sort(
+        (a, b) => b.price_cents / 100 - a.price_cents / 100
       );
     return templates?.matches;
   };
@@ -87,8 +94,9 @@ const CategoriesTemplates = () => {
               id="sort"
             >
               <option value="Ascending">Ascending</option>
-              <option value="Price">Price</option>
               <option value="Descending">Descending</option>
+              <option value="Cheapest">Price (Cheapest-Expensive)</option>
+              <option value="Expensive">Price (Expensive-Cheapest)</option>
             </select>
           </div>
         </div>
