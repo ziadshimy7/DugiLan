@@ -1,13 +1,9 @@
-.dugilan__cards {
-  width: 98%;
-}
 .dugilan__cards-container {
   display: grid;
   gap: 0.5rem;
   grid-template-columns: repeat(3, 1fr);
   -ms-grid-row-align: center;
 }
-
 @media screen and (max-width: 1000px) {
   .dugilan__cards-container {
     grid-template-columns: 1fr;

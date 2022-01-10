@@ -14,7 +14,7 @@ const Orders = () => {
   const onDeleteItemHandler = (id) => {
     dispatch(deleteItemFromCart(id));
   };
-  const [orders, setOrders] = useState(cartState);
+  const [orders, setOrders] = useState([]);
   useEffect(() => {
     setOrders(cartState?.cartItems);
   }, [cartState]);
@@ -25,6 +25,7 @@ const Orders = () => {
     items.splice(result.destination.index, 0, reorderedItems);
     setOrders(items);
   };
+  console.log(orders);
   return (
     <DragDropContext onDragEnd={handleOnDragEnd}>
       <div className={styles["dugilan__items"]}>

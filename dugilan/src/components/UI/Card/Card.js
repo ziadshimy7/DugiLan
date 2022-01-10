@@ -23,31 +23,29 @@ const Card = ({ template }) => {
 
   return (
     <>
-      <div className={styles["dugilan__card-container"]}>
-        <div className={styles["dugilan__card"]}>
-          <a href={template.url}>
-            <img
-              src={template.previews.landscape_preview.landscape_url}
-              alt="test"
-            />
-          </a>
-          <div className={styles["dugilan__card-content"]}>
-            <h4>{template.name}</h4>
-            <p>PHP, Wordpress</p>
-            <div className={styles["dugilan__card-buttons"]}>
-              <h6 className={styles["dugilan__card-content_price"]}>
-                ${template.price_cents / 100}
-              </h6>
-              <button
-                onClick={(e) => {
-                  onAddToCartHandler(e);
-                }}
-                className={styles["dugilan__card-add_to-cart"]}
-              >
-                Add to cart
-              </button>
-              <button>Like product</button>
-            </div>
+      <div className={styles["dugilan__card"]}>
+        <a href={template.url}>
+          <img
+            src={template.previews.landscape_preview.landscape_url}
+            alt="test"
+          />
+        </a>
+        <div className={styles["dugilan__card-content"]}>
+          <h4>{template.name}</h4>
+          <p>PHP, Wordpress</p>
+          <div className={styles["dugilan__card-buttons"]}>
+            <h6 className={styles["dugilan__card-content_price"]}>
+              ${template.price_cents / 100}
+            </h6>
+            <button
+              onClick={(e) => {
+                onAddToCartHandler(e);
+              }}
+              className={styles["dugilan__card-add_to-cart"]}
+            >
+              Add to cart
+            </button>
+            <button>Like product</button>
           </div>
         </div>
       </div>

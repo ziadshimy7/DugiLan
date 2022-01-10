@@ -1,24 +1,22 @@
-.dugilan__card-container {
-  -webkit-animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-    both;
-  animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
 .dugilan__card {
   display: flex;
   flex-direction: column;
   border-radius: 5px;
-  width: 90%;
-}
-.dugilan__card:hover {
-  -webkit-animation: rotate-vert-center 0.7s
-    cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
-  animation: rotate-vert-center 0.7s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+  width: 98%;
+  -webkit-animation: slide-in-right 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
     both;
+  animation: slide-in-right 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 .dugilan__card img {
   width: 100%;
   margin: 0.5rem 0;
   border-radius: 5px;
+}
+.dugilan__card img:hover {
+  -webkit-animation: rotate-vert-center 0.9s
+    cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+  animation: rotate-vert-center 0.7s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+    both;
 }
 .dugilan__card-content {
   display: flex;
