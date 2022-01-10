@@ -81,8 +81,6 @@ const reducer = (state = initialState, action) => {
       );
       let updatedCartItems;
       const updatedCartItem = state.cartItems[currentCartItemIndex];
-      console.log(updatedCartItem._id, updatedCartItem.quantity);
-      console.log(state.cartItems);
       if (updatedCartItem.quantity === 1) {
         updatedCartItems = state.cartItems.filter(
           (item) => item._id !== updatedCartItem._id

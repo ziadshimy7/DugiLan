@@ -113,16 +113,7 @@ export const increaseItemQuantity = (item) => async (dispatch) => {
 };
 export const decreaseItemQuantity = (item) => async (dispatch) => {
   if (item.quantity === 1) {
-    dispatch({
-      type: "DELETE",
-      payload: {
-        data: [item],
-        error: {
-          status: false,
-          message: "",
-        },
-      },
-    });
+    dispatch(deleteItemFromCart(item._id));
     return;
   }
   const data = await updateRequest(cartURL, item, "DECREASE");
