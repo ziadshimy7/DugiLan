@@ -42,7 +42,7 @@ function App() {
         </div>
         <Contact />
         <Footer />
-        {toggleModal && <Modal modalHandler={setToggleModal} />}
+        {toggleModal && <Modal />}
         {cartState?.error?.status && <ErrorModal />}
       </div>
     </>

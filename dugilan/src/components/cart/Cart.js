@@ -16,7 +16,7 @@ const Cart = () => {
   useEffect(() => {
     dispatch(getCart(currentUser?.email));
   }, [dispatch, currentUser?.email]);
-  const { toggleModal, setToggleModal } = useModal();
+  const { toggleModal } = useModal();
   return (
     <>
       <Navbar />
@@ -31,7 +31,7 @@ const Cart = () => {
       </div>
 
       <Footer />
-      {toggleModal && <Modal modalHandler={setToggleModal} />}
+      {toggleModal && <Modal />}
     </>
   );
 };

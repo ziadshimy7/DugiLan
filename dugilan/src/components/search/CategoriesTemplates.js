@@ -1,17 +1,21 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Cards, envatoUrl, Footer, Navbar, token } from "..";
+import { Cards, envatoUrl, Footer, Navbar, token } from "../index";
+import Modal from "../UI/modal/Modal";
 import useHTTP from "../../hooks/useHTTP";
 import styles from "./CategoriesTemplates.module.css";
 import Pagination from "../UI/pagination/Pagination";
 import GridLoader from "react-spinners/GridLoader";
 import ErrorModal from "../UI/modal/ErrorModal";
 import { useSelector } from "react-redux";
+import { useModal } from "../../contexts/ModalContext";
 const CategoriesTemplates = () => {
   let params = useParams();
   // * STATE LOGIC *//
   const [templates, setTemplates] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const { toggleModal, setToggleModal } = useModal();
+
   const [optionsValue, setOptionsValue] = useState("Ascending");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
@@ -71,7 +75,7 @@ const CategoriesTemplates = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar setToggleModal={setToggleModal} />
       {isLoading && (
         <div className="overlay">
           <div className="loader">
@@ -119,6 +123,7 @@ const CategoriesTemplates = () => {
       </div>
       <Footer />
       {cartState?.error?.status && <ErrorModal />}
+      {toggleModal && <Modal modalHandler={setToggleModal} />}
     </>
   );
 };
