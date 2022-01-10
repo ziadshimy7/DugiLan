@@ -29,9 +29,19 @@ export const deleteCartItem = async (req, res) => {
   const { id } = req.body;
   console.log(req.body);
   if (!mongoose.Types.ObjectId.isValid(id))
-    return res.status(404).send("No Post with that ID");
+    return res.status(404).send({ message: "INVALID_ID" });
   const cartItem = await CartItems.find({ _id: req.body.id });
   console.log(cartItem);
   await CartItems.findByIdAndRemove(id);
+  res.status(201).json(cartItem);
+};
+export const updateItemQuantity = async (req, res) => {
+  const { id, quantity } = req.body;
+  console.log(id, quantity);
+  if (!mongoose.Types.ObjectId.isValid(id))
+    return res.status(404).send({ message: "INVALID_ID" });
+  const cartItem = await CartItems.find({ _id: id });
+  console.log(cartItem);
+  await CartItems.findByIdAndUpdate(id, { $inc: { quantity: 1 } });
   res.status(201).json(cartItem);
 };
