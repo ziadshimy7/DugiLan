@@ -4,8 +4,8 @@
   position: fixed;
   top: 25%;
   left: 35%;
-  width: 30%;
-  height: 30%;
+  width: 40%;
+  height: 40%;
   background-color: white;
   padding: 1rem;
   border-radius: 14px;
@@ -25,9 +25,9 @@
   font-family: var(--font-family);
   font-weight: normal;
   font-size: 25px;
-  line-height: 44px;
   text-align: center;
   letter-spacing: -0.0068em;
+  line-height: 44px;
   color: red;
   margin-bottom: 1rem;
 }
@@ -39,4 +39,22 @@
   background-color: #0fafe9;
   cursor: pointer;
   color: #fff;
+}
+@media screen and (max-width: 1300px) {
+  .dugilan__errorModal-message {
+    font-size: 15px;
+  }
+  .dugilan__errorModal button {
+    padding: 0.8rem 2rem;
+  }
+}
+@media screen and (max-width: 560px) {
+  .dugilan__errorModal {
+    width: 90%;
+    left: 5%;
+  }
+  .dugilan__errorModal-message {
+    font-size: 14px;
+    line-height: 25px;
+  }
 }

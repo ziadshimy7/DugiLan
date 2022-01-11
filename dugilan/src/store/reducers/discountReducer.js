@@ -1,7 +1,10 @@
 const initialState = {
   code: "",
   discount: 0,
-  error: { status: false, message: "" },
+  error: {
+    status: false,
+    message: "",
+  },
 };
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -14,8 +17,8 @@ const reducer = (state = initialState, action) => {
       };
     case "NOT_FOUND":
       return {
-        code: state.code,
-        discount: state.discount,
+        code: initialState.code,
+        discount: initialState.discount,
         error: {
           status: action.payload.error?.status,
           message: action.payload.error?.message,
@@ -23,8 +26,8 @@ const reducer = (state = initialState, action) => {
       };
     case "EXPIRED": {
       return {
-        code: state.code,
-        discount: state.discount,
+        code: initialState.code,
+        discount: initialState.discount,
         error: {
           status: action.payload?.error?.status,
           message: action.payload?.error?.message,

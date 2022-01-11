@@ -15,10 +15,11 @@ export const getDiscountCode = (code) => async (dispatch) => {
           error: {
             status: true,
             message:
-              "This coupon has expired. Please try another one or subscribe to Dugilan to get the lastest coupons",
+              "This coupon has expired. Please try another one or subscribe to Dugilan to get the lastest coupons.",
           },
         },
       });
+      return;
     }
     if (data.message === "NOT_FOUND") {
       dispatch({
