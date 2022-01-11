@@ -18,6 +18,12 @@ function App() {
   const cartState = useSelector((state) => state.cartReducer);
   const { toggleModal, setToggleModal } = useModal();
   const [isLoading, setIsLoading] = useState(false);
+  const day = Number(new Date().toLocaleDateString().split("/")[1]) + 10;
+  console.log(day);
+  console.log(new Date().toLocaleDateString());
+  console.log(new Date(2022, 1, 22).toLocaleDateString());
+  const [month, day1, year] = new Date().toLocaleDateString().split("/");
+  console.log(month, day1, year);
 
   return (
     <>

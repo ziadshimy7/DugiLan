@@ -12,3 +12,20 @@ export const getDiscountCode = async (req, res) => {
     res.status(404).json({ message: error.message });
   }
 };
+export const createDiscountCode = async (req, res) => {
+  try {
+    const discountCode = req.body;
+    const newDiscountCode = new DiscountCodes(discountCode);
+    const codeExists = await DiscountCodes.findOne({
+      code: discountCode.code,
+    });
+    if (!codeExists) {
+      await newDiscountCode.save();
+      res.status(201).json(newDiscountCode);
+    } else {
+      res.send({ message: "CODE_EXISTS" });
+    }
+  } catch (error) {
+    res.status(409).json({ message: error.message });
+  }
+};
