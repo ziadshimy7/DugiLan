@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getDiscountCode } from "../../store/actions/discountActions";
 const DiscountBar = () => {
   const [discountCode, setDiscountCode] = useState("");
+  const discountState = useSelector((state) => state.discountReducer);
   const dispatch = useDispatch();
   const discountButtonHandler = (e) => {
     e.preventDefault();
@@ -28,8 +29,10 @@ const DiscountBar = () => {
           <button type="submit">APPLY</button>
         </form>
         <p className="gradient__text">
-          If you have a coupon code discount please apply , otherwise please
-          subscribe to our offers below for a chance to receive one.
+          {discountState?.code
+            ? `Discount code ${discountState?.code} has been applied. You get a ${discountState?.discount}% off !`
+            : `If you have a coupon code discount please apply , otherwise please
+          subscribe to our offers below for a chance to receive one.`}
         </p>
       </div>
     </>

@@ -3,6 +3,12 @@ import styles from "./OrdersSummary.module.css";
 import { useSelector } from "react-redux";
 const OrdersSummary = () => {
   const cartState = useSelector((state) => state.cartReducer);
+  const discountState = useSelector((state) => state.discountReducer);
+  console.log(cartState?.totalAmount, discountState?.discount);
+  const discountPercentage = Number(discountState?.discount) / 100;
+  const totalAmountWithDiscount = (
+    cartState?.totalAmount * discountPercentage
+  ).toFixed();
   return (
     <div className={`${styles["dugilan__categories"]}`}>
       <h2>Cart's Total</h2>
@@ -14,13 +20,13 @@ const OrdersSummary = () => {
         <hr />
         <li className={styles["dugilan__categories-link"]}>
           <p>Discount Coupon</p>
-          <p>-$0</p>
+          <p>-${totalAmountWithDiscount ?? 0}</p>
         </li>
         <hr />
 
         <li className={styles["dugilan__categories-link"]}>
           <p href="#address">Total</p>
-          <p>${cartState?.totalAmount}</p>
+          <p>${cartState?.totalAmount - totalAmountWithDiscount}</p>
         </li>
       </ul>
       <button className={styles["dugilan__categories-button"]}>
