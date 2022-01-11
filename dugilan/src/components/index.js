@@ -13,4 +13,5 @@ const API_ARRAY_SIZE = 12;
 const token = process.env.REACT_APP_ENVATO_TOKEN;
 const envatoUrl = `https://api.envato.com/v1/discovery/search/search/item?site=themeforest.net&term=`;
 const cartURL = process.env.REACT_APP_LOCAL_SERVER_CART_URL;
-export { token, envatoUrl, API_ARRAY_SIZE, cartURL };
+const discountURL = process.env.REACT_APP_LOCAL_SERVER_DISCOUNT_URL;
+export { token, envatoUrl, API_ARRAY_SIZE, cartURL, discountURL };

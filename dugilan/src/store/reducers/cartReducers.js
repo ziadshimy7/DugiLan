@@ -100,7 +100,11 @@ const reducer = (state = initialState, action) => {
       };
 
     default:
-      return state.cartItems;
+      return {
+        cartItems: state.cartItems,
+        error: state.error,
+        totalAmount: state.totalAmount,
+      };
   }
 };
 export default reducer;
