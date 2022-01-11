@@ -71,15 +71,53 @@
   letter-spacing: -0.18px;
   text-transform: uppercase;
   white-space: nowrap;
+  transition: all 0.3s ease-in-out;
 }
 .dugilan__card-buttons button:hover {
   background-color: rgba(11, 43, 54, 0.1);
   color: #0fafe9;
 }
 .dugilan__card-add_to-cart {
+  position: relative;
   margin-left: 1rem;
+  padding: 0.5rem 2.5rem !important;
 }
-
+.dugilan__card-add_to-cart:active {
+  transform: scale(0.9);
+}
+.dugilan__card-shoppingCart_icon {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: -10%;
+  font-size: 2em;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+.dugilan__card-bag_icon {
+  position: absolute;
+  z-index: 3;
+  top: -20%;
+  left: 52%;
+  font-size: 1.2em;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+.addToCart {
+  opacity: 1;
+}
+.added {
+  opacity: 0;
+}
+.dugilan__card-add_to-cart span {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 50%;
+  /* font-size: 1.2em; */
+  color: #fff;
+  transform: translate(-50%, -50%);
+}
 @media screen and (max-width: 1000px) {
   .dugilan__card {
     min-width: 60%;
@@ -148,5 +186,65 @@
   100% {
     -webkit-transform: rotateY(360deg);
     transform: rotateY(360deg);
+  }
+}
+.dugilan__card-add_to-cart.clicked .dugilan__card-shoppingCart_icon {
+  animation: cart 1.5s ease-in-out forwards;
+}
+.dugilan__card-add_to-cart.clicked .dugilan__card-bag_icon {
+  animation: box 1.5s ease-in-out forwards;
+}
+.dugilan__card-add_to-cart.clicked span.addToCart {
+  animation: txt1 1.5s ease-in-out forwards;
+}
+.dugilan__card-add_to-cart.clicked span.added {
+  animation: txt2 1.5s ease-in-out forwards;
+}
+@keyframes cart {
+  0% {
+    left: -10%;
+    opacity: 1;
+  }
+  40%,
+  60% {
+    left: 50%;
+  }
+  100% {
+    left: 110%;
+    opacity: 0;
+  }
+}
+@keyframes box {
+  0%,
+  40% {
+    opacity: 1;
+    top: -20%;
+  }
+  60% {
+    top: 40%;
+    left: 52%;
+  }
+  100% {
+    top: 40%;
+    left: 112%;
+    opacity: 0;
+  }
+}
+@keyframes txt1 {
+  0% {
+    opacity: 1;
+  }
+  20%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes txt2 {
+  0%,
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

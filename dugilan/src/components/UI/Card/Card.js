@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Card.module.css";
 import { useAuth } from "../../../contexts/AuthContext";
 import { useDispatch } from "react-redux";
 import { addItemToCart } from "../../../store/actions/cartActions";
 import { cartURL } from "../../index";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { BsBagCheck } from "react-icons/bs";
 const Card = ({ template }) => {
   const dispatch = useDispatch();
+  let animationTimeOut;
+  const [clickedAnimation, setClickAnimation] = useState(false);
   const { currentUser } = useAuth();
   const postRequestBody = {
     id: template.id.toString(),
@@ -17,9 +21,15 @@ const Card = ({ template }) => {
   };
   const onAddToCartHandler = async (e) => {
     e.preventDefault();
+    setClickAnimation(true);
     dispatch(addItemToCart(postRequestBody, cartURL));
+    animationTimeOut = setTimeout(() => {
+      setClickAnimation(false);
+    }, 2000);
   };
-
+  useEffect(() => {
+    return () => clearTimeout(animationTimeOut);
+  }, []);
   return (
     <>
       <div className={styles["dugilan__card"]}>
@@ -40,9 +50,16 @@ const Card = ({ template }) => {
               onClick={(e) => {
                 onAddToCartHandler(e);
               }}
-              className={styles["dugilan__card-add_to-cart"]}
+              className={`${styles["dugilan__card-add_to-cart"]} ${
+                clickedAnimation && styles.clicked
+              }`}
             >
-              Add to cart
+              <span className={styles.addToCart}>Add to cart</span>
+              <span className={styles.added}>Added</span>
+              <AiOutlineShoppingCart
+                className={styles["dugilan__card-shoppingCart_icon"]}
+              />
+              <BsBagCheck className={styles["dugilan__card-bag_icon"]} />
             </button>
             <button>Like product</button>
           </div>
