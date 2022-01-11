@@ -11,3 +11,9 @@
   --color-subtext: #33334f;
   --color-subcontainer: #add8e6;
 }
+button {
+  transition: all 0.5s;
+}
+button:active {
+  transform: scale(0.9);
+}

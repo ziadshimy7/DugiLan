@@ -1,10 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./SignInModal.module.css";
 import { AiOutlineClose } from "react-icons/ai";
 import useInput from "../../hooks/useInput";
 import Input from "../UI//input/Input";
 import { useAuth } from "../../contexts/AuthContext";
+//*! USE A CUSTOM ERROR MODAL FOR SIGN IN OR SIGN UP FAILURE
 const SignInModal = ({ modalHandler, signupToggleHandler }) => {
+  const [invalidUserOrPassword, setInvalidUserOrPassword] = useState(false);
   const { login } = useAuth();
   const {
     value: usernameValue,
@@ -28,13 +30,19 @@ const SignInModal = ({ modalHandler, signupToggleHandler }) => {
   useEffect(() => {
     usernameInput.current.focus();
   }, []);
-  const onSubmitHandler = (e) => {
+  const onSubmitHandler = async (e) => {
     e.preventDefault();
-    login(usernameValue, passwordValue);
+
+    const authentication = await login(usernameValue, passwordValue);
+    if (!authentication) {
+      setInvalidUserOrPassword(true);
+      return;
+    }
     resetUsernameInput();
     resetPassword();
     modalHandler(false);
   };
+  console.log(invalidUserOrPassword);
   let formIsValid = isUsernameInputValid && isPasswordInputValid;
   if (!isUsernameInputValid || !isPasswordInputValid) formIsValid = false;
   return (
@@ -47,7 +55,9 @@ const SignInModal = ({ modalHandler, signupToggleHandler }) => {
       />
 
       <form
-        onSubmit={onSubmitHandler}
+        onSubmit={(e) => {
+          onSubmitHandler(e);
+        }}
         className={styles["dugilan__signIn-form"]}
         action=""
       >
@@ -82,10 +92,13 @@ const SignInModal = ({ modalHandler, signupToggleHandler }) => {
             Please enter a valid password
           </p>
         )}
+        {invalidUserOrPassword && (
+          <p className={styles["dugilan__signIn-error_text"]}>
+            Invalid username/password,Please try again.
+          </p>
+        )}
         <div className={styles["dugilan__signIn-form_button"]}>
-          <button onClick={() => {}} disabled={!formIsValid}>
-            Login
-          </button>
+          <button disabled={!formIsValid}>Login</button>
           <input onClick={(e) => {}} id="checkbox1" type="checkbox" />
           <label htmlFor="checkbox1">Remember me</label>
         </div>

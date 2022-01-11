@@ -16,14 +16,26 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState();
   const signup = async (username, password) => {
-    const user = await createUserWithEmailAndPassword(auth, username, password);
-    setCurrentUser(user);
-    return user;
+    try {
+      const user = await createUserWithEmailAndPassword(
+        auth,
+        username,
+        password
+      );
+      console.log(user);
+      return user;
+    } catch (error) {
+      console.log(error);
+    }
   };
   const login = async (username, password) => {
-    const user = await signInWithEmailAndPassword(auth, username, password);
-    setCurrentUser(user);
-    return user;
+    try {
+      const user = await signInWithEmailAndPassword(auth, username, password);
+      console.log(user);
+      return user;
+    } catch (error) {
+      console.log(error);
+    }
   };
   const logout = async (username, password) => {
     return setTimeout(() => signOut(auth, username, password), 2000);
