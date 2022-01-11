@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styles from "./DiscountBar.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { getDiscountCode } from "../../store/actions/discountActions";
+import ErrorModal from "../UI/modal/ErrorModal";
+import { resetDiscountErrors } from "../../store/actions/discountActions";
 const DiscountBar = () => {
   const [discountCode, setDiscountCode] = useState("");
   const discountState = useSelector((state) => state.discountReducer);
@@ -9,7 +11,6 @@ const DiscountBar = () => {
   const discountButtonHandler = (e) => {
     e.preventDefault();
     dispatch(getDiscountCode(discountCode));
-    console.log(discountCode);
   };
   return (
     <>
@@ -35,8 +36,13 @@ const DiscountBar = () => {
           subscribe to our offers below for a chance to receive one.`}
         </p>
       </div>
+      {discountState?.error?.status && (
+        <ErrorModal
+          message={discountState?.error?.message}
+          resetErrors={resetDiscountErrors}
+        />
+      )}
     </>
   );
 };
-
 export default DiscountBar;

@@ -6,19 +6,38 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case "APPLY_CODE":
-      console.log(action.payload.data);
+      const { data } = action.payload;
       return {
-        code: action.payload.data[0].code,
-        discount: action.payload.data[0].discount,
+        code: data.code,
+        discount: data.discount,
         error: state.error,
       };
     case "NOT_FOUND":
       return {
-        code: initialState.code,
-        discount: initialState.discount,
+        code: state.code,
+        discount: state.discount,
         error: {
-          status: action.payload.error.status,
-          message: action.payload.error.message,
+          status: action.payload.error?.status,
+          message: action.payload.error?.message,
+        },
+      };
+    case "EXPIRED": {
+      return {
+        code: state.code,
+        discount: state.discount,
+        error: {
+          status: action.payload?.error?.status,
+          message: action.payload?.error?.message,
+        },
+      };
+    }
+    case "RESET_ERROR":
+      return {
+        code: state.code,
+        discount: state.discount,
+        error: {
+          status: false,
+          message: "",
         },
       };
     default:

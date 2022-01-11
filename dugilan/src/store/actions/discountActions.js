@@ -8,6 +8,18 @@ export const getDiscountCode = (code) => async (dispatch) => {
       },
       discountURL
     );
+    if (data.message === "EXPIRED") {
+      dispatch({
+        type: "EXPIRED",
+        payload: {
+          error: {
+            status: true,
+            message:
+              "This coupon has expired. Please try another one or subscribe to Dugilan to get the lastest coupons",
+          },
+        },
+      });
+    }
     if (data.message === "NOT_FOUND") {
       dispatch({
         type: "NOT_FOUND",
@@ -20,9 +32,11 @@ export const getDiscountCode = (code) => async (dispatch) => {
       });
       return;
     }
-    console.log(data);
-    dispatch({ type: "APPLY_CODE", payload: { data } });
+    dispatch({ type: "APPLY_CODE", payload: { data: data.discountCode } });
   } catch (error) {
     console.log(error);
   }
+};
+export const resetDiscountErrors = () => async (dispatch) => {
+  dispatch({ type: "RESET_ERROR" });
 };

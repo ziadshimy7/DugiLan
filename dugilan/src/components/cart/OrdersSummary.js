@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 const OrdersSummary = () => {
   const cartState = useSelector((state) => state.cartReducer);
   const discountState = useSelector((state) => state.discountReducer);
-  console.log(cartState?.totalAmount, discountState?.discount);
   const discountPercentage = Number(discountState?.discount) / 100;
   const totalAmountWithDiscount = (
     cartState?.totalAmount * discountPercentage

@@ -13,18 +13,12 @@ import React, { useState } from "react";
 import { useModal } from "./contexts/ModalContext";
 import ErrorModal from "./components/UI/modal/ErrorModal";
 import { useSelector } from "react-redux";
-
+import { resetItemExistsError } from "./store/actions/cartActions";
 function App() {
   const cartState = useSelector((state) => state.cartReducer);
   const { toggleModal, setToggleModal } = useModal();
   const [isLoading, setIsLoading] = useState(false);
-  const day = Number(new Date().toLocaleDateString().split("/")[1]) + 10;
-  console.log(day);
-  console.log(new Date().toLocaleDateString());
-  console.log(new Date(2022, 1, 22).toLocaleDateString());
-  const [month, day1, year] = new Date().toLocaleDateString().split("/");
-  console.log(month, day1, year);
-
+  console.log(new Date().getTime() > new Date(2010, 10, 11).getTime());
   return (
     <>
       <div className="App">
@@ -40,19 +34,21 @@ function App() {
             </div>
           </div>
         )}
-        <div className="position-relative">
-          <Navbar setToggleModal={setToggleModal} />
-          <Header />
-          <Brand />
-          <Products setIsLoading={setIsLoading} isLoading={isLoading} />
-        </div>
+        <Navbar setToggleModal={setToggleModal} />
+        <Header />
+        <Brand />
+        <Products setIsLoading={setIsLoading} isLoading={isLoading} />
         <Contact />
         <Footer />
         {toggleModal && <Modal />}
-        {cartState?.error?.status && <ErrorModal />}
+        {cartState?.error?.status && (
+          <ErrorModal
+            message={cartState?.error?.message}
+            resetErrors={resetItemExistsError}
+          />
+        )}
       </div>
     </>
   );
 }
-
 export default App;

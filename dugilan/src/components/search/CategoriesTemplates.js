@@ -9,6 +9,7 @@ import GridLoader from "react-spinners/GridLoader";
 import ErrorModal from "../UI/modal/ErrorModal";
 import { useSelector } from "react-redux";
 import { useModal } from "../../contexts/ModalContext";
+import { resetItemExistsError } from "../../store/actions/cartActions";
 const CategoriesTemplates = () => {
   let params = useParams();
   // * STATE LOGIC *//
@@ -122,7 +123,12 @@ const CategoriesTemplates = () => {
         />
       </div>
       <Footer />
-      {cartState?.error?.status && <ErrorModal />}
+      {cartState?.error?.status && (
+        <ErrorModal
+          message={cartState?.error?.message}
+          resetErrors={resetItemExistsError}
+        />
+      )}
       {toggleModal && <Modal modalHandler={setToggleModal} />}
     </>
   );
