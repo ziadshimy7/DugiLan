@@ -8,7 +8,6 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BsBagCheck } from "react-icons/bs";
 const Card = ({ template }) => {
   const dispatch = useDispatch();
-  let animationTimeOut;
   const [clickedAnimation, setClickAnimation] = useState(false);
   const { currentUser } = useAuth();
   const postRequestBody = {
@@ -19,15 +18,15 @@ const Card = ({ template }) => {
     quantity: 1,
     image: template.previews.landscape_preview.landscape_url,
   };
-  const onAddToCartHandler = async (e) => {
+  const onAddToCartHandler = (e) => {
     e.preventDefault();
     setClickAnimation(true);
     dispatch(addItemToCart(postRequestBody, cartURL));
-    animationTimeOut = setTimeout(() => {
-      setClickAnimation(false);
-    }, 2000);
   };
   useEffect(() => {
+    let animationTimeOut = setTimeout(() => {
+      setClickAnimation(false);
+    }, 2500);
     return () => clearTimeout(animationTimeOut);
   }, []);
   return (

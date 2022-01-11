@@ -15,7 +15,7 @@
 .dugilan__card img:hover {
   -webkit-animation: rotate-vert-center 0.9s
     cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
-  animation: rotate-vert-center 0.7s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+  animation: rotate-vert-center 0.9s cubic-bezier(0.455, 0.03, 0.515, 0.955)
     both;
 }
 .dugilan__card-content {
@@ -118,6 +118,18 @@
   color: #fff;
   transform: translate(-50%, -50%);
 }
+.dugilan__card-add_to-cart.clicked .dugilan__card-shoppingCart_icon {
+  animation: cart 1.5s ease-in-out forwards;
+}
+.dugilan__card-add_to-cart.clicked .dugilan__card-bag_icon {
+  animation: box 1.5s ease-in-out forwards;
+}
+.dugilan__card-add_to-cart.clicked span.addToCart {
+  animation: txt1 1.5s ease-in-out forwards;
+}
+.dugilan__card-add_to-cart.clicked span.added {
+  animation: txt2 1.5s ease-in-out forwards;
+}
 @media screen and (max-width: 1000px) {
   .dugilan__card {
     min-width: 60%;
@@ -187,18 +199,6 @@
     -webkit-transform: rotateY(360deg);
     transform: rotateY(360deg);
   }
-}
-.dugilan__card-add_to-cart.clicked .dugilan__card-shoppingCart_icon {
-  animation: cart 1.5s ease-in-out forwards;
-}
-.dugilan__card-add_to-cart.clicked .dugilan__card-bag_icon {
-  animation: box 1.5s ease-in-out forwards;
-}
-.dugilan__card-add_to-cart.clicked span.addToCart {
-  animation: txt1 1.5s ease-in-out forwards;
-}
-.dugilan__card-add_to-cart.clicked span.added {
-  animation: txt2 1.5s ease-in-out forwards;
 }
 @keyframes cart {
   0% {
