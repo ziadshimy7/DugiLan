@@ -5,10 +5,12 @@ import facebookImage from "../../assets/facebook.png";
 import forbesImage from "../../assets/forbes.png";
 import linkedinImage from "../../assets/linkedin.png";
 import acerImage from "../../assets/acer.svg";
+import { useTranslation } from "react-i18next/";
 const Brand = () => {
+  const { t } = useTranslation();
   return (
     <div className={styles["dugilan__brand"]}>
-      <p>Some of our 500 clients already using Dugilan</p>
+      <p>{t("brand.main-paragraph")}</p>
       <div className={styles["dugilan__brand-image_container"]}>
         <img src={acerImage} alt="Acer" />
         <img src={facebookImage} alt="Facebook" />

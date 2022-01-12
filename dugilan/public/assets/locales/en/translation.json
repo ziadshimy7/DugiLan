@@ -1,0 +1,55 @@
+{
+  "navbar": {
+    "first-link": "Browse",
+    "second-link": "All-Exclusive",
+    "third-link": "Docs",
+    "sign-in": "Sign in",
+    "logout": "Logout"
+  },
+  "header": {
+    "main-paragraph": "More than 100 Wordpress Themes & Templates",
+    "button": "Search",
+    "secondary-paragraph": "From multipurpose themes to niche templates, you’ll always find something that catches your eye."
+  },
+  "brand": {
+    "main-paragraph": "SOME OF OUR 500 CLIENTS ALREADY USING DUGILAN"
+  },
+  "categories": {
+    "main-paragraph": "Browse Categories",
+    "first-link": "Home",
+    "second-link": "Wordpress Themes",
+    "third-link": "Ecommerce Templates",
+    "fourth-link": "Marketing Templates",
+    "fifth-link": "CMS Templates",
+    "sixth-link": "Site Templates",
+    "seventh-link": "Blogging"
+  },
+  "cards": {
+    "add-to-cart-button": "Add to cart",
+    "added-button": "Added",
+    "like-button": "Like Product"
+  },
+  "services": {
+    "first-paragraph-header": "Security Assurance",
+    "second-paragraph-header": "Best Customer Support",
+    "third-paragraph-header": "Great Quality Theme",
+    "second-paragraph-text": "Our theme architecture is designed for maximize security and prevent malware, Dos Attack other",
+    "first-paragraph-text": "Need help? We’re here for you! Do not worry as we provide indepth answers to all of your questions.",
+    "third-paragraph-text": "We will be responsible for delivering the best online user experience, which makes my role extremely important."
+  },
+  "subscribe": {
+    "main-paragraph": "Subscribe Newsletter",
+    "secondary-paragraph": "Get all the latest information on Events, Sales and Offers.",
+    "button": "Subscribe"
+  },
+  "analytics": {
+    "main-paragraph": "Monthly users in your site",
+    "secondary-paragraph": "We accompany you with our versatile expertise in digital marketing"
+  },
+  "contact": {
+    "main-paragraph": "We build apps and websites",
+    "secondary-paragraph": "From multipurpose themes to niche templates,you’ll always find something that catches your eye.",
+    "button": "contact us",
+    "portofolio": "or see our portofolio"
+  }
+}

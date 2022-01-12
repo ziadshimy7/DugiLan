@@ -6,7 +6,9 @@ import { addItemToCart } from "../../../store/actions/cartActions";
 import { cartURL } from "../../index";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BsBagCheck } from "react-icons/bs";
+import { useTranslation } from "react-i18next/";
 const Card = ({ template }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const [clickedAnimation, setClickAnimation] = useState(false);
   const { currentUser } = useAuth();
@@ -53,14 +55,16 @@ const Card = ({ template }) => {
                 clickedAnimation && styles.clicked
               }`}
             >
-              <span className={styles.addToCart}>Add to cart</span>
-              <span className={styles.added}>Added</span>
+              <span className={styles.addToCart}>
+                {t("cards.add-to-cart-button")}
+              </span>
+              <span className={styles.added}>{t("cards.added-button")}</span>
               <AiOutlineShoppingCart
                 className={styles["dugilan__card-shoppingCart_icon"]}
               />
               <BsBagCheck className={styles["dugilan__card-bag_icon"]} />
             </button>
-            <button>Like product</button>
+            <button>{t("cards.like-button")}</button>
           </div>
         </div>
       </div>

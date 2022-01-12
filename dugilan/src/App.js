@@ -14,7 +14,11 @@ import { useModal } from "./contexts/ModalContext";
 import ErrorModal from "./components/UI/modal/ErrorModal";
 import { useSelector } from "react-redux";
 import { resetItemExistsError } from "./store/actions/cartActions";
+import Cookies from "js-cookie";
+
 function App() {
+  const currentLanguageCode = Cookies.get("i18next") || "en";
+  console.log(currentLanguageCode);
   const cartState = useSelector((state) => state.cartReducer);
   const { toggleModal, setToggleModal } = useModal();
   const [isLoading, setIsLoading] = useState(false);

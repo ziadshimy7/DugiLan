@@ -13,25 +13,28 @@ import { useModal } from "../../contexts/ModalContext";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getCart } from "../../store/actions/cartActions";
+import { useTranslation } from "react-i18next/";
 const Navbar = () => {
   const { setToggleModal } = useModal();
   const cartState = useSelector((state) => state.cartReducer);
   const { logout, currentUser } = useAuth();
   const dispatch = useDispatch();
   const { likes } = useCart();
+  const { t } = useTranslation();
+
   useEffect(() => {
     dispatch(getCart(currentUser?.email));
   }, [currentUser?.email, dispatch]);
   const links = (
     <>
       <p>
-        <a href="#browse">Browse</a>
+        <a href="#browse">{t("navbar.first-link")}</a>
       </p>
       <p>
-        <a href="#allexc">All-Exclusive</a>
+        <a href="#allexc">{t("navbar.second-link")}</a>
       </p>
       <p>
-        <a href="#docs">Docs</a>
+        <a href="#docs">{t("navbar.third-link")}</a>
       </p>
     </>
   );
@@ -86,7 +89,7 @@ const Navbar = () => {
           <button onClick={() => logout()}>Logout</button>
         ) : (
           <button onClick={() => setToggleModal(true)} type="button">
-            Sign in
+            {t("navbar.sign-in")}
           </button>
         )}
       </div>
@@ -131,10 +134,10 @@ const Navbar = () => {
                   </div>
                 </div>
                 {currentUser ? (
-                  <button onClick={() => logout()}>Logout</button>
+                  <button onClick={() => logout()}>{t("navbar.logout")}</button>
                 ) : (
                   <button onClick={() => setToggleModal(true)} type="button">
-                    Sign in
+                    {t("navbar.sign-in")}
                   </button>
                 )}
               </div>

@@ -10,8 +10,10 @@ import Subscribe from "../subscribe/Subscribe";
 import Analytics from "../analytics/Analytics";
 import Advertisment from "../ad/Advertisment";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next/";
 
 const Categories = () => {
+  const { t } = useTranslation();
   const browseCategoriesLinks = [
     {
       icon: (
@@ -20,7 +22,7 @@ const Categories = () => {
           size={14}
         />
       ),
-      link: <Link to="/">Home</Link>,
+      link: <Link to="/">{t("categories.first-link")}</Link>,
     },
     {
       icon: (
@@ -29,7 +31,7 @@ const Categories = () => {
           size={14}
         />
       ),
-      link: <Link to="/search/wordpress">Wordpress Themes</Link>,
+      link: <Link to="/search/wordpress">{t("categories.second-link")}</Link>,
     },
     {
       icon: (
@@ -38,7 +40,7 @@ const Categories = () => {
           size={14}
         />
       ),
-      link: <Link to="/search/ecommerce">Ecommerce Templates</Link>,
+      link: <Link to="/search/ecommerce">{t("categories.third-link")}</Link>,
     },
     {
       icon: (
@@ -47,7 +49,7 @@ const Categories = () => {
           size={14}
         />
       ),
-      link: <Link to="/search/marketing">Marketing Templates</Link>,
+      link: <Link to="/search/marketing">{t("categories.fourth-link")}</Link>,
     },
     {
       icon: (
@@ -57,7 +59,7 @@ const Categories = () => {
         />
       ),
 
-      link: <Link to="/search/cms">CMS Templates</Link>,
+      link: <Link to="/search/cms">{t("categories.fifth-link")}</Link>,
     },
     {
       icon: (
@@ -66,7 +68,7 @@ const Categories = () => {
           size={14}
         />
       ),
-      link: <Link to="/search/site">Site Templates</Link>,
+      link: <Link to="/search/site">{t("categories.sixth-link")}</Link>,
     },
     {
       icon: (
@@ -75,13 +77,13 @@ const Categories = () => {
           size={14}
         />
       ),
-      link: <Link to="/search/blogging">Blogging</Link>,
+      link: <Link to="/search/blogging">{t("categories.seventh-link")}</Link>,
     },
   ];
   return (
     <div className={styles["dugilan__main-container"]}>
       <div className={`${styles["dugilan__categories"]}`}>
-        <h2>Browse Categories</h2>
+        <h2>{t("categories.main-paragraph")}</h2>
         <ul className={styles["dugilan__categories-links_container"]}>
           {browseCategoriesLinks.map((link, index) => {
             return (

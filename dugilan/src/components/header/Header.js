@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import styles from "./Header.module.css";
 import headerImage from "../../assets/header.svg";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next/";
 const Header = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [inputValue, setInputValue] = useState("");
   return (
     <div className={`${styles["dugilan__header"]} ${`section__padding`}`}>
       <div className={styles["dugilan__header-content"]}>
-        <h1 className="gradient__text ">
-          More than 100 Wordpress Themes & Templates
-        </h1>
+        <h1 className="gradient__text ">{t("header.main-paragraph")}</h1>
         <form
           onSubmit={() => {
             navigate(`/search/${inputValue}`);
@@ -25,12 +25,9 @@ const Header = () => {
             placeholder="e.g Responsive slider"
           />
 
-          <button type="submit">Search</button>
+          <button type="submit">{t("header.button")}</button>
         </form>
-        <p>
-          From multipurpose themes to niche templates, you’ll always find
-          something that catches your eye.
-        </p>
+        <p>{t("header.secondary-paragraph")}</p>
       </div>
       <div className={styles["dugilan__header-image"]}>
         <img src={headerImage} alt="Main" />

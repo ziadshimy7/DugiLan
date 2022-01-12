@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./Analytics.module.css";
+import { useTranslation } from "react-i18next/";
 const Analytics = () => {
+  const { t } = useTranslation();
   return (
     <div className={styles["dugilan__analytics"]}>
       <div className={styles["dugilan__circular"]}>
@@ -20,11 +22,9 @@ const Analytics = () => {
         </div>
       </div>
       <div className={styles["dugilan__analytics-content"]}>
-        <h4>Monthly users in your site</h4>
+        <h4>{t("analytics.main-paragraph")}</h4>
         <h5>1.0286</h5>
-        <p>
-          We accompany you with our versatile expertise in digital marketing
-        </p>
+        <p>{t("analytics.secondary-paragraph")}</p>
       </div>
     </div>
   );
