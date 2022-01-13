@@ -1,3 +1,55 @@
 {
-  "welcome_to_home": "مرحبا بكم في الصفحة الرئيسية"
+  "navbar": {
+    "first-link": "تصفح",
+    "second-link": "منتجات حصرية",
+    "third-link": "المستندات",
+    "sign-in": "تسجيل الدخول",
+    "logout": "تسجيل خروج"
+  },
+  "header": {
+    "main-paragraph": "أكثر من 100 قالب ووردبريس",
+    "button": "بحث",
+    "secondary-paragraph": "من السمات متعددة الأغراض إلى النماذج المتخصصة ، ستجد دائمًا شيئًا يلفت انتباهك."
+  },
+  "brand": {
+    "main-paragraph": "بعض من ال 500 عميل لدينا الذين يستخدمون Duglian بالفعل"
+  },
+  "categories": {
+    "main-paragraph": "تصفح الفئات",
+    "first-link": "الصفحة الرئيسية",
+    "second-link": "ثيمات Wordpress ",
+    "third-link": "قوالب التجارة الإلكترونية",
+    "fourth-link": "قوالب التسويق",
+    "fifth-link": "قوالب CMS",
+    "sixth-link": "قوالب المواقع",
+    "seventh-link": "التدوين"
+  },
+  "cards": {
+    "add-to-cart-button": "أضف إلى السلة",
+    "added-button": "تم الاضافة",
+    "like-button": "اضف علامة اعجاب"
+  },
+  "services": {
+    "first-paragraph-header": "ضمان الأمن",
+    "second-paragraph-header": "أفضل دعم للعملاء",
+    "third-paragraph-header": "مظهر رائع الجودة",
+    "second-paragraph-text": "تم تصميم بنية السمات الخاصة بنا لتحقيق أقصى قدر من الأمان ومنع البرامج الضارة ، مثل هجمات DOS وغيرها",
+    "first-paragraph-text": "هل تحتاج إلى مساعدة؟ نحن هنا من أجلك! لا تقلق لأننا نقدم إجابات متعمقة لجميع أسئلتك.",
+    "third-paragraph-text": "سنكون مسؤولين عن تقديم أفضل تجربة للمستخدم عبر الإنترنت."
+  },
+  "subscribe": {
+    "main-paragraph": "اشترك في النشرة الإخبارية",
+    "secondary-paragraph": "احصل على أحدث المعلومات حول الأحداث والمبيعات والعروض.",
+    "button": "إشترك "
+  },
+  "analytics": {
+    "main-paragraph": "المستخدمون الشهريون في موقعك",
+    "secondary-paragraph": "نحن نرافقك بخبرتنا المتنوعة في مجال التسويق الرقمي"
+  },
+  "contact": {
+    "main-paragraph": "نحن نبني التطبيقات والمواقع الإلكترونية",
+    "secondary-paragraph": "من السمات متعددة الأغراض إلى النماذج المتخصصة ، ستجد دائمًا شيئًا يلفت انتباهك.",
+    "button": "تواصل معنا",
+    "portofolio": "او شاهد البورتفوليو الخاص بنا"
+  }
 }

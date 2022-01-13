@@ -10,45 +10,30 @@ import NotFound from "./components/not-found/NotFound";
 import { Provider } from "react-redux";
 import store from "./store/store";
 import CategoriesTemplates from "./components/search/CategoriesTemplates";
-import i18next from "i18next";
-import { initReactI18next } from "react-i18next";
-import HttpApi from "i18next-http-backend";
-import LanguageDetector from "i18next-browser-languagedetector";
+import "./i18next.js";
 import GridLoader from "react-spinners/GridLoader";
+import SiteDirectionProvider from "./contexts/SiteDirectionContext";
 
-i18next
-  .use(HttpApi)
-  .use(LanguageDetector)
-  .use(initReactI18next)
-  .init({
-    fallbackLng: "en",
-    supportedLngs: ["en", "ar", "ru"],
-    detection: {
-      order: ["cookie", "path", "htmlTag", "subdomain"],
-      caches: ["cookie"],
-    },
-    backend: {
-      loadPath: "/assets/locales/{{lng}}/translation.json",
-    },
-  });
 ReactDOM.render(
   <Suspense fallback={<GridLoader />}>
     <React.StrictMode>
       <Provider store={store}>
         <ModalProvider>
-          <AuthProvider>
-            <BrowserRouter>
-              <Routes>
-                <Route path="/" exact element={<App />} />
-                <Route path="/cart" element={<Cart />} />
-                <Route
-                  path="/search/:term"
-                  element={<CategoriesTemplates />}
-                ></Route>
-                <Route path="*" element={<NotFound />}></Route>
-              </Routes>
-            </BrowserRouter>
-          </AuthProvider>
+          <SiteDirectionProvider>
+            <AuthProvider>
+              <BrowserRouter>
+                <Routes>
+                  <Route path="/" exact element={<App />} />
+                  <Route path="/cart" element={<Cart />} />
+                  <Route
+                    path="/search/:term"
+                    element={<CategoriesTemplates />}
+                  ></Route>
+                  <Route path="*" element={<NotFound />}></Route>
+                </Routes>
+              </BrowserRouter>
+            </AuthProvider>
+          </SiteDirectionProvider>
         </ModalProvider>
       </Provider>
     </React.StrictMode>

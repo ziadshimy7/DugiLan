@@ -43,6 +43,39 @@
   letter-spacing: -0.0033em;
   color: #0b0b0c;
 }
+.dugilan__navbar-links_languages-list {
+  position: absolute;
+  top: 61px;
+  right: 18%;
+  list-style: none;
+  font-family: var(--font-family);
+  background-color: darkgrey;
+  border-radius: 3px;
+  display: flex;
+  justify-content: space-evenly;
+  min-width: 150px;
+  min-height: 200px;
+  align-items: center;
+  flex-direction: column;
+}
+.dugilan__navbar-language_link {
+  display: flex;
+  align-items: center;
+  width: 70%;
+  justify-content: space-between;
+}
+.dugilan__flag-icon {
+  max-width: 30px;
+  /* margin-right: 0.5rem; */
+  width: 60%;
+}
+.dugilan__language-button {
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: inherit !important;
+  font-size: 13px !important;
+  line-height: normal !important;
+}
 .dugilan__navbar-links_sign {
   display: flex;
   flex-direction: row;
@@ -55,6 +88,21 @@
   height: 2px;
   border-radius: 50%;
   color: black;
+}
+.dugilan__navbar-menu_languages-list {
+  position: absolute;
+  top: 100%;
+  /* right: 1px; */
+  list-style: none;
+  font-family: var(--font-family);
+  background-color: darkgrey;
+  border-radius: 3px;
+  display: flex;
+  justify-content: space-evenly;
+  min-width: 350px;
+  min-height: 200px;
+  align-items: center;
+  flex-direction: column;
 }
 .dugilan__navbar-menu_container-sign button,
 .dugilan__navbar-links_sign button {

@@ -50,6 +50,9 @@
   border: none;
   cursor: pointer;
 }
+.image {
+  right: 56% !important;
+}
 .dugilan__contact-button button:hover {
   background-color: rgba(11, 43, 54, 0.1);
   color: #0fafe9;
@@ -83,6 +86,9 @@
   .dugilan__contact img {
     position: relative;
   }
+  .image {
+    right: 30% !important;
+  }
   .dugilan__contact-content p {
     width: 100%;
     text-align: center;
@@ -91,5 +97,8 @@
 @media screen and (max-width: 500px) {
   .dugilan__contact-content h1 {
     text-align: center;
+  }
+  .image {
+    right: 25% !important;
   }
 }

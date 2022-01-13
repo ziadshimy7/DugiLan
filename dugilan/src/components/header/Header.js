@@ -3,7 +3,9 @@ import styles from "./Header.module.css";
 import headerImage from "../../assets/header.svg";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next/";
+import { useSiteDirection } from "../../contexts/SiteDirectionContext";
 const Header = () => {
+  const { siteDirection } = useSiteDirection();
   const navigate = useNavigate();
   const { t } = useTranslation();
   const [inputValue, setInputValue] = useState("");
@@ -18,6 +20,9 @@ const Header = () => {
           className={styles["dugilan__header-content_form"]}
         >
           <input
+            className={
+              siteDirection === "rtl" ? styles["dugilan__header-input"] : ""
+            }
             onChange={(e) => {
               setInputValue(e.target.value);
             }}
@@ -25,7 +30,14 @@ const Header = () => {
             placeholder="e.g Responsive slider"
           />
 
-          <button type="submit">{t("header.button")}</button>
+          <button
+            className={
+              siteDirection === "rtl" ? styles["dugilan__header-button"] : ""
+            }
+            type="submit"
+          >
+            {t("header.button")}
+          </button>
         </form>
         <p>{t("header.secondary-paragraph")}</p>
       </div>
@@ -35,5 +47,4 @@ const Header = () => {
     </div>
   );
 };
-
 export default Header;

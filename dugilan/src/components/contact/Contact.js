@@ -2,7 +2,10 @@ import React from "react";
 import styles from "./Contact.module.css";
 import contactImage from "../../assets/Mask Group.png";
 import { useTranslation } from "react-i18next/";
+import { useSiteDirection } from "../../contexts/SiteDirectionContext";
+
 const Contact = () => {
+  const { siteDirection } = useSiteDirection();
   const { t } = useTranslation();
   return (
     <div className={styles["dugilan__contact"]}>
@@ -14,7 +17,11 @@ const Contact = () => {
           <p>{t("contact.portofolio")}</p>
         </div>
       </div>
-      <img src={contactImage} alt="Phone" />
+      <img
+        className={siteDirection === "rtl" ? styles["image"] : ""}
+        src={contactImage}
+        alt="Phone"
+      />
     </div>
   );
 };
