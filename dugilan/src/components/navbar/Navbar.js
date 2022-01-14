@@ -18,6 +18,9 @@ import { getCart } from "../../store/actions/cartActions";
 import { useTranslation } from "react-i18next/";
 import Cookies from "js-cookie";
 import i18next from "i18next";
+import { useSiteDirection } from "../../contexts/SiteDirectionContext";
+import NavbarIcons from "./NavbarIcons";
+import NavbarMenu from "./NavbarMenu";
 const languages = [
   {
     code: "ru",
@@ -39,6 +42,7 @@ const languages = [
 
 const Navbar = () => {
   const { setToggleModal } = useModal();
+  const { siteDirection } = useSiteDirection();
   const cartState = useSelector((state) => state.cartReducer);
   const { logout, currentUser } = useAuth();
   const dispatch = useDispatch();
@@ -93,157 +97,8 @@ const Navbar = () => {
         </div>
         <div className={styles["dugilan__navbar-links_container"]}>{links}</div>
       </div>
-      <div className={styles["dugilan__navbar-links_sign"]}>
-        <div className={styles["dugilan__navbar-links_icon-container"]}>
-          <AiOutlineHeart
-            className={styles["dugilan__navbar-links-sign_icon"]}
-          />
-          <div className={styles["dugilan__navbar-links_cart-icon"]}>
-            <p>{likes}</p>
-          </div>
-        </div>
-        <div className={styles["dugilan__navbar-links_icon-container"]}>
-          <Link to="/cart">
-            <FiShoppingBag
-              className={`${styles["dugilan__navbar-links-sign_icon"]} ${styles["dugilan__shake-animation"]}`}
-            />
-          </Link>
-          <div className={styles["dugilan__navbar-links_cart-icon"]}>
-            <p>{cartState?.cartItems?.length || 0}</p>
-          </div>
-        </div>
-        <div className={styles["dugilan__navbar-links_icon-container"]}>
-          <BsGlobe
-            onClick={() => {
-              setToggleGlobeIcon((prevState) => !prevState);
-            }}
-            size={18}
-            className={`${styles["dugilan__navbar-links-sign_icon"]} ${styles["dugilan__shake-animation"]}`}
-          />
-        </div>
-        {toggleGlobeIcon && (
-          <ul className={styles["dugilan__navbar-links_languages-list"]}>
-            {languages.map(({ code, name, country_code }) => {
-              const Flag = Flags[country_code];
-              return (
-                <li
-                  className={styles["dugilan__navbar-language_link"]}
-                  key={country_code}
-                >
-                  <Flag
-                    className={styles["dugilan__flag-icon"]}
-                    style={{
-                      opacity: currentLanguageCode === code ? 0.2 : 1,
-                    }}
-                  ></Flag>
-                  <button
-                    className={styles["dugilan__language-button"]}
-                    disabled={currentLanguageCode === code}
-                    onClick={() => i18next.changeLanguage(code)}
-                  >
-                    {name}
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-        )}
-        {currentUser ? (
-          <button onClick={() => logout()}>{t("navbar.logout")}</button>
-        ) : (
-          <button onClick={() => setToggleModal(true)} type="button">
-            {t("navbar.sign-in")}
-          </button>
-        )}
-      </div>
-      <div className={styles["dugilan__navbar-menu"]}>
-        {toggleMenu ? (
-          <AiFillCloseCircle
-            className={`${styles["dugilan__navbar-menu_icon"]} ${styles["dugilan__navbar-menu_close-icon"]}`}
-            onClick={() => setToggleMenu(false)}
-            size="24"
-          />
-        ) : (
-          <AiOutlineMenu
-            className={styles["dugilan__navbar-menu_icon"]}
-            onClick={() => setToggleMenu(true)}
-            size="24"
-          />
-        )}
-        {toggleMenu && (
-          <div className={styles["dugilan__navbar-menu_container"]}>
-            <div className={styles["dugilan__navbar-menu_container-links"]}>
-              {links}
-              <div className={styles["dugilan__navbar-menu_container-sign"]}>
-                <div className={styles["dugilan__navbar-menu_icon-container"]}>
-                  <AiOutlineHeart
-                    className={styles["dugilan__navbar-menu-sign_icon"]}
-                  />
-                  <div className={styles["dugilan__navbar-menu-add-to-cart"]}>
-                    <p>{likes}</p>
-                  </div>
-                </div>
-                <div className={styles["dugilan__navbar-menu_icon-container"]}>
-                  <Link to="cart">
-                    <FiShoppingBag
-                      className={`${styles["dugilan__navbar-menu-sign_icon"]} ${styles["dugilan__shake-animation"]}`}
-                    />
-                  </Link>
-                  <div className={styles["dugilan__navbar-menu-add-to-cart"]}>
-                    <p>{cartState?.cartItems?.length || 0}</p>
-                  </div>
-                </div>
-                <div className={styles["dugilan__navbar-menu_icon-container"]}>
-                  <BsGlobe
-                    onClick={() => {
-                      setToggleMenuGlobeIcon((prevState) => !prevState);
-                    }}
-                    size={18}
-                    className={`${styles["dugilan__navbar-links-sign_icon"]} ${styles["dugilan__shake-animation"]}`}
-                  />
-                </div>
-                {toggleMenuGlobeIcon && (
-                  <ul className={styles["dugilan__navbar-menu_languages-list"]}>
-                    {languages.map(({ code, name, country_code }) => {
-                      const Flag = Flags[country_code];
-                      return (
-                        <li
-                          key={country_code}
-                          className={styles["dugilan__navbar-language_link"]}
-                        >
-                          <Flag
-                            className={styles["dugilan__flag-icon"]}
-                            style={{
-                              opacity: currentLanguageCode === code ? 0.2 : 1,
-                            }}
-                          ></Flag>
-                          <button
-                            className={styles["dugilan__language-button"]}
-                            disabled={currentLanguageCode === code}
-                            onClick={() => {
-                              i18next.changeLanguage(code);
-                            }}
-                          >
-                            {name}
-                          </button>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                )}
-
-                {currentUser ? (
-                  <button onClick={() => logout()}>{t("navbar.logout")}</button>
-                ) : (
-                  <button onClick={() => setToggleModal(true)} type="button">
-                    {t("navbar.sign-in")}
-                  </button>
-                )}
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
+      <NavbarIcons />
+      <NavbarMenu />
     </div>
   );
 };
