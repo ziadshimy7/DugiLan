@@ -9,8 +9,10 @@ import {
   increaseItemQuantity,
   decreaseItemQuantity,
 } from "../../store/actions/cartActions";
+import { useTranslation } from "react-i18next/";
 const Orders = () => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const cartState = useSelector((state) => state.cartReducer);
   const onDeleteItemHandler = (id) => {
     dispatch(deleteItemFromCart(id));
@@ -29,13 +31,13 @@ const Orders = () => {
   return (
     <DragDropContext onDragEnd={handleOnDragEnd}>
       <div className={styles["dugilan__items"]}>
-        <h1>Shopping Cart</h1>
+        <h1>{t("cart.header")}</h1>
         <div className={styles["dugilan__items-cart_labels-text"]}>
-          <p>Order name</p>
-          <p>Order ID</p>
-          <p>QTY</p>
-          <p>Price</p>
-          <p>Remove</p>
+          <p>{t("cart.order-name")}</p>
+          <p>{t("cart.order-id")}</p>
+          <p>{t("cart.quantity")}</p>
+          <p>{t("cart.price")}</p>
+          <p>{t("cart.remove")}</p>
         </div>
         <Droppable droppableId="dropabble-1">
           {(provided) => (
@@ -117,7 +119,7 @@ const Orders = () => {
                 })
               ) : (
                 <h2 className={styles["dugilan__items-cart_empty-text"]}>
-                  Your Cart is empty.
+                  {t("cart.empty-cart-text")}
                 </h2>
               )}
               {provided.placeholder}

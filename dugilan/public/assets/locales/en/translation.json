@@ -51,5 +51,27 @@
     "secondary-paragraph": "From multipurpose themes to niche templates,you’ll always find something that catches your eye.",
     "button": "contact us",
     "portofolio": "or see our portfolio"
+  },
+
+  "cart": {
+    "header": "Shopping Cart",
+    "order-name": "Order name",
+    "order-id": "Order ID",
+    "quantity": "QTY",
+    "price": "Price",
+    "remove": "Remove",
+    "empty-cart-text": "Your Cart is empty."
+  },
+  "orders-summary": {
+    "cart-total": "Cart's Total",
+    "subtotal": "Subtotal",
+    "discount-coupon": "Discount Coupon",
+    "total": "Total",
+    "button": "Proceed to checkout"
+  },
+  "discount-bar": {
+    "button": "APPLY",
+    "paragraph": "If you have a coupon code discount please apply , otherwise please subscribe to our offers below for a chance to receive one.",
+    "success-paragraph": "Discount code {{discount_code}} has been applied. You get a {{discount}}% off !"
   }
 }
