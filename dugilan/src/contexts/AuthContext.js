@@ -22,7 +22,6 @@ export const AuthProvider = ({ children }) => {
         username,
         password
       );
-      console.log(user);
       return user;
     } catch (error) {
       console.log(error);
@@ -31,7 +30,6 @@ export const AuthProvider = ({ children }) => {
   const login = async (username, password) => {
     try {
       const user = await signInWithEmailAndPassword(auth, username, password);
-      console.log(user);
       return user;
     } catch (error) {
       console.log(error);

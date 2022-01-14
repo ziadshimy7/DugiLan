@@ -42,7 +42,6 @@ const SignInModal = ({ modalHandler, signupToggleHandler }) => {
     resetPassword();
     modalHandler(false);
   };
-  console.log(invalidUserOrPassword);
   let formIsValid = isUsernameInputValid && isPasswordInputValid;
   if (!isUsernameInputValid || !isPasswordInputValid) formIsValid = false;
   return (
