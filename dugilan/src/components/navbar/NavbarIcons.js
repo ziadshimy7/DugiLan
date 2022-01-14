@@ -28,7 +28,7 @@ const languages = [
     code: "ar",
     name: "العربية",
     dir: "rtl",
-    country_code: "SA",
+    country_code: "EG",
   },
 ];
 const NavbarIcons = () => {

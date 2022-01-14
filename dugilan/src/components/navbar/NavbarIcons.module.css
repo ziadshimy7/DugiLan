@@ -55,6 +55,7 @@
 .dugilan__navbar-links_languages-list {
   position: absolute;
   top: 61px;
+  z-index: 10;
   right: 18%;
   list-style: none;
   font-family: var(--font-family);

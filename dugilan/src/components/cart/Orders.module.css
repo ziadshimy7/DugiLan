@@ -32,6 +32,12 @@
   color: #0b0b0c;
   max-width: 25%;
 }
+.dugilan__items-cart_labels-text-arabic {
+  justify-content: space-around !important;
+}
+.dugilan__item-name-arabic {
+  margin-right: 1rem;
+}
 .dugilan__items-cart_labels-text :first-child {
   margin-left: 1.8rem;
 }
@@ -134,6 +140,9 @@
     justify-content: space-evenly;
     min-height: 200px;
     flex: 1;
+  }
+  .dugilan__item-name-arabic {
+    margin: 0;
   }
   .dugilan__items-item_name img {
     margin-right: 0;

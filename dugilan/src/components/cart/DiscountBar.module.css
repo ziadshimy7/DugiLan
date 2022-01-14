@@ -6,6 +6,9 @@
   margin-bottom: 2.8rem;
   margin-left: 2rem;
 }
+.dugilan__discount-content_form-arabic {
+  margin-right: 2rem !important;
+}
 .dugilan__discount-content_form input {
   flex: 0.3;
   padding: 1rem 4rem;
@@ -24,6 +27,12 @@
   letter-spacing: -0.18px;
   outline: none;
 }
+.dugilan__discount-input-arabic {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-top-right-radius: 7px !important;
+  border-bottom-right-radius: 7px !important;
+}
 .dugilan__discount-content_form button {
   flex: 0.2;
   padding: 1.2rem 2.5rem;
@@ -39,6 +48,10 @@
   cursor: pointer;
   background: rgba(15, 175, 233, 0.1);
   border-radius: 0px 10px 10px 0px;
+}
+.dugilan__discount-button-arabic {
+  border-radius: 10px 0 0 10px !important;
+  padding: 1.2rem 1.7rem !important;
 }
 .dugilan__discount-content_container p {
   font-family: var(--font-family);

@@ -10,8 +10,10 @@ import {
   decreaseItemQuantity,
 } from "../../store/actions/cartActions";
 import { useTranslation } from "react-i18next/";
+import { useSiteDirection } from "../../contexts/SiteDirectionContext";
 const Orders = () => {
   const dispatch = useDispatch();
+  const { siteDirection } = useSiteDirection();
   const { t } = useTranslation();
   const cartState = useSelector((state) => state.cartReducer);
   const onDeleteItemHandler = (id) => {
@@ -32,7 +34,11 @@ const Orders = () => {
     <DragDropContext onDragEnd={handleOnDragEnd}>
       <div className={styles["dugilan__items"]}>
         <h1>{t("cart.header")}</h1>
-        <div className={styles["dugilan__items-cart_labels-text"]}>
+        <div
+          className={`${styles["dugilan__items-cart_labels-text"]} ${
+            siteDirection && styles["dugilan__items-cart_labels-text-arabic"]
+          } `}
+        >
           <p>{t("cart.order-name")}</p>
           <p>{t("cart.order-id")}</p>
           <p>{t("cart.quantity")}</p>
@@ -66,7 +72,14 @@ const Orders = () => {
                               src={item?.image ? item?.image : defaultImage}
                               alt={item?.image ? "Cart" : "Image unavailable"}
                             />
-                            <p>{item?.name} Theme</p>
+                            <p
+                              className={`${
+                                siteDirection &&
+                                styles["dugilan__item-name-arabic"]
+                              }`}
+                            >
+                              {item?.name} Theme
+                            </p>
                             <div className={styles["dugilan__item-icon"]}>
                               <BsFillTrashFill
                                 onClick={() => {
