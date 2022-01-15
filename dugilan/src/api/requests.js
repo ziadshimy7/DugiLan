@@ -40,3 +40,4 @@ export const updateRequest = async (url, item, method) => {
     console.log(error);
   }
 };
+console.log("Hi");
