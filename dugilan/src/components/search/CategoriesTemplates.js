@@ -10,6 +10,7 @@ import ErrorModal from "../UI/modal/ErrorModal";
 import { useSelector } from "react-redux";
 import { useModal } from "../../contexts/ModalContext";
 import { resetItemExistsError } from "../../store/actions/cartActions";
+import Loader from "react-spinners/GridLoader";
 
 const CategoriesTemplates = () => {
   let params = useParams();
@@ -21,7 +22,7 @@ const CategoriesTemplates = () => {
   const cartState = useSelector((state) => state.cartReducer);
   const {
     templates: envatoTemplates,
-    isLoading,
+    isLoading: loading,
     setIsLoading,
   } = useHTTP(
     `${envatoUrl}${params.term || "marketing"}`,
@@ -59,15 +60,10 @@ const CategoriesTemplates = () => {
   return (
     <>
       <Navbar setToggleModal={setToggleModal} />
-      {isLoading && (
+      {loading && (
         <div className="overlay">
           <div className="loader">
-            <GridLoader
-              css={"loader"}
-              size="20px"
-              color="#0fafe9"
-              loading={isLoading}
-            />
+            <GridLoader size="20px" color="#0fafe9" />
           </div>
         </div>
       )}
@@ -92,7 +88,7 @@ const CategoriesTemplates = () => {
         </div>
         <Cards
           searchTerm={params.term}
-          isLoading={isLoading}
+          isLoading={loading}
           setIsLoading={setIsLoading}
           templates={currentItems}
         />

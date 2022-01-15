@@ -1,5 +1,5 @@
 import React from "react";
-import { envatoUrl, apiRequestHeader } from "..";
+import { envatoUrl, apiRequestHeader } from "../index";
 import styles from "./Products.module.css";
 import Cards from "../cards/Cards";
 import Categories from "../categories/Categories";
@@ -12,18 +12,12 @@ const Products = () => {
     `${envatoUrl}Marketing`,
     apiRequestHeader.auth
   );
-  console.log(envatoTemplates);
   return (
     <div className={styles["dugilan__products"]}>
       {loading && (
         <div className="overlay">
           <div className="loader">
-            <GridLoader
-              css={"loader"}
-              size="20px"
-              color="#0fafe9"
-              loading={loading}
-            />
+            <GridLoader size="20px" color="#0fafe9" loading={loading} />
           </div>
         </div>
       )}

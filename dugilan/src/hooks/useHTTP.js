@@ -5,11 +5,15 @@ const useHTTP = (url, requestHeader = {}, requestParams = "") => {
   const [templates, setTemplates] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const getRequest = useCallback(async () => {
-    const data = await axios.get(url, {
-      headers: { Authorization: requestHeader },
-      params: requestParams,
-    });
-    return data.data;
+    try {
+      const data = await axios.get(url, {
+        headers: { Authorization: requestHeader },
+        params: requestParams,
+      });
+      return data.data;
+    } catch (error) {
+      console.log(error);
+    }
   }, [url, requestHeader, requestParams]);
   const postRequest = useCallback(
     async (body) => {
@@ -41,9 +45,10 @@ const useHTTP = (url, requestHeader = {}, requestParams = "") => {
         const data = await getRequest();
         console.log(data);
         setTemplates(data.matches);
-        setIsLoading(false);
       } catch (error) {
         console.log(error);
+      } finally {
+        setIsLoading(false);
       }
     };
     loadTemplates();
