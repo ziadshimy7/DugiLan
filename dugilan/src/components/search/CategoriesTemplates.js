@@ -10,7 +10,6 @@ import ErrorModal from "../UI/modal/ErrorModal";
 import { useSelector } from "react-redux";
 import { useModal } from "../../contexts/ModalContext";
 import { resetItemExistsError } from "../../store/actions/cartActions";
-import Loader from "react-spinners/GridLoader";
 
 const CategoriesTemplates = () => {
   let params = useParams();
@@ -53,7 +52,6 @@ const CategoriesTemplates = () => {
     firstPostIndex,
     lastPostIndex
   );
-  console.log(envatoTemplates);
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
