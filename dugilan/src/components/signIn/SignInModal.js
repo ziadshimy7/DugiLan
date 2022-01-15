@@ -84,6 +84,7 @@ const SignInModal = ({ modalHandler, signupToggleHandler }) => {
           onBlur={onPasswordBlurHandler}
           value={passwordValue}
           required={true}
+          showPassword={true}
         />
         {passwordHasErrors && (
           <p className={styles["dugilan__signIn-error_text"]}>
