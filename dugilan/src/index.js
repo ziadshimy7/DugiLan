@@ -11,11 +11,10 @@ import { Provider } from "react-redux";
 import store from "./store/store";
 import CategoriesTemplates from "./components/search/CategoriesTemplates";
 import "./i18next.js";
-import GridLoader from "react-spinners/GridLoader";
 import SiteDirectionProvider from "./contexts/SiteDirectionContext";
 
 ReactDOM.render(
-  <Suspense fallback={<GridLoader />}>
+  <Suspense fallback={"."}>
     <React.StrictMode>
       <Provider store={store}>
         <ModalProvider>

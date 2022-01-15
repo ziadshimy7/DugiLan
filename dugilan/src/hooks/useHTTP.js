@@ -39,19 +39,17 @@ const useHTTP = (url, requestHeader = {}, requestParams = "") => {
     [url]
   );
   useEffect(() => {
-    const loadTemplates = async () => {
+    (async () => {
       try {
         setIsLoading(true);
         const data = await getRequest();
-        console.log(data);
         setTemplates(data.matches);
       } catch (error) {
         console.log(error);
       } finally {
         setIsLoading(false);
       }
-    };
-    loadTemplates();
+    })();
   }, [url, getRequest]);
   return {
     postRequest,

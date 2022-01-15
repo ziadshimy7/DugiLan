@@ -39,13 +39,14 @@ const SignupModal = ({ modalHandler, signupToggleHandler }) => {
   useEffect(() => {
     usernameInput.current.focus();
   }, []);
-  const onSubmitHandler = (e) => {
+  const onSubmitHandler = async (e) => {
     try {
       e.preventDefault();
       signup(usernameValue, passwordValue);
       resetUsernameInput();
       resetPassword();
       resetConfirmPassword();
+      modalHandler(false);
     } catch (err) {
       console.error(err);
     }

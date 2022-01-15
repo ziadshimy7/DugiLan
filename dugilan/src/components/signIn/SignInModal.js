@@ -4,7 +4,6 @@ import { AiOutlineClose } from "react-icons/ai";
 import useInput from "../../hooks/useInput";
 import Input from "../UI//input/Input";
 import { useAuth } from "../../contexts/AuthContext";
-//*! USE A CUSTOM ERROR MODAL FOR SIGN IN OR SIGN UP FAILURE
 const SignInModal = ({ modalHandler, signupToggleHandler }) => {
   const [invalidUserOrPassword, setInvalidUserOrPassword] = useState(false);
   const { login } = useAuth();
