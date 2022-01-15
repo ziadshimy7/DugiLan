@@ -1,6 +1,6 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { Cards, envatoUrl, Footer, Navbar, token } from "../index";
+import { Cards, envatoUrl, Footer, Navbar, apiRequestHeader } from "../index";
 import Modal from "../UI/modal/Modal";
 import useHTTP from "../../hooks/useHTTP";
 import styles from "./CategoriesTemplates.module.css";
@@ -10,51 +10,41 @@ import ErrorModal from "../UI/modal/ErrorModal";
 import { useSelector } from "react-redux";
 import { useModal } from "../../contexts/ModalContext";
 import { resetItemExistsError } from "../../store/actions/cartActions";
+
 const CategoriesTemplates = () => {
   let params = useParams();
   // * STATE LOGIC *//
-  const [templates, setTemplates] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
   const { toggleModal, setToggleModal } = useModal();
-
   const [optionsValue, setOptionsValue] = useState("Ascending");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
   const cartState = useSelector((state) => state.cartReducer);
-  const { getRequest: getTemplates } = useHTTP(
+  const {
+    templates: envatoTemplates,
+    isLoading,
+    setIsLoading,
+  } = useHTTP(
     `${envatoUrl}${params.term || "marketing"}`,
-    setTemplates
+    apiRequestHeader.auth
   );
-
-  const loadTemplates = useCallback(async () => {
-    setIsLoading(true);
-    await getTemplates({
-      requestHeader: {
-        Authorization: `Bearer ${token}`,
-      },
-      requestParams: "",
-    });
-
-    setIsLoading(false);
-  }, [setIsLoading, getTemplates]);
   // * ENDING OF STATE LOGIC *//
   // * SORTING AND PAGINATION LOGIC *//
   const sortedItems = (sortBy) => {
     if (sortBy === "Ascending")
-      return templates?.matches?.sort((a, b) => a.name.localeCompare(b.name));
+      return envatoTemplates?.sort((a, b) => a.name.localeCompare(b.name));
     if (sortBy === "Descending")
-      return templates?.matches
+      return envatoTemplates
         ?.sort((a, b) => a.name.localeCompare(b.name))
         ?.reverse();
     if (sortBy === "Cheapest")
-      return templates?.matches?.sort(
+      return envatoTemplates?.sort(
         (a, b) => a.price_cents / 100 - b.price_cents / 100
       );
     if (sortBy === "Expensive")
-      return templates?.matches?.sort(
+      return envatoTemplates?.sort(
         (a, b) => b.price_cents / 100 - a.price_cents / 100
       );
-    return templates?.matches;
+    return envatoTemplates;
   };
   const lastPostIndex = currentPage * itemsPerPage;
   const firstPostIndex = lastPostIndex - itemsPerPage;
@@ -62,18 +52,10 @@ const CategoriesTemplates = () => {
     firstPostIndex,
     lastPostIndex
   );
+  console.log(envatoTemplates);
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
-  // * ENDING OF SORTING AND PAGINATION LOGIC
-  useEffect(() => {
-    let isSubscribed = true;
-    if (isSubscribed) loadTemplates();
-    return () => {
-      isSubscribed = false;
-    };
-  }, [loadTemplates]);
-
   return (
     <>
       <Navbar setToggleModal={setToggleModal} />
@@ -116,7 +98,7 @@ const CategoriesTemplates = () => {
         />
         <Pagination
           itemsPerPage={itemsPerPage}
-          totalItems={templates?.matches?.length}
+          totalItems={envatoTemplates?.length}
           paginate={paginate}
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}

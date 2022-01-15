@@ -4,10 +4,6 @@
   padding: 0;
   scroll-behavior: smooth;
 }
-
-.position-relative {
-  position: relative;
-}
 a {
   text-decoration: none;
   color: inherit;
@@ -29,7 +25,6 @@ body {
   top: 50%;
   left: 40%;
 }
-
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -38,7 +33,6 @@ body {
     transform: rotate(360deg);
   }
 }
-
 .gradient__text {
   background: var(--gradient-text);
 

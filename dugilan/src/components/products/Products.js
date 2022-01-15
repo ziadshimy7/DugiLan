@@ -1,42 +1,38 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React from "react";
+import { envatoUrl, apiRequestHeader } from "..";
 import styles from "./Products.module.css";
 import Cards from "../cards/Cards";
 import Categories from "../categories/Categories";
 import Service from "../service/Service";
 import useHTTP from "../../hooks/useHTTP";
-import { envatoUrl, token } from "..";
-const Products = ({ isLoading, setIsLoading }) => {
-  const [templates, setTemplates] = useState([]);
-  const { getRequest: getTemplates } = useHTTP(
-    `${envatoUrl}Marketing`,
-    setTemplates
-  );
-  const loadTemplates = useCallback(async () => {
-    setIsLoading(true);
-    await getTemplates({
-      requestHeader: {
-        Authorization: `Bearer ${token}`,
-      },
-      requestParams: "",
-    });
+import GridLoader from "react-spinners/GridLoader";
 
-    setIsLoading(false);
-  }, [setIsLoading, getTemplates]);
-  useEffect(() => {
-    let isSubscribed = true;
-    if (isSubscribed) loadTemplates();
-    return () => {
-      isSubscribed = false;
-    };
-  }, [loadTemplates]);
+const Products = () => {
+  const { templates: envatoTemplates, isLoading: loading } = useHTTP(
+    `${envatoUrl}Marketing`,
+    apiRequestHeader.auth
+  );
+  console.log(envatoTemplates);
   return (
     <div className={styles["dugilan__products"]}>
+      {loading && (
+        <div className="overlay">
+          <div className="loader">
+            <GridLoader
+              css={"loader"}
+              size="20px"
+              color="#0fafe9"
+              loading={loading}
+            />
+          </div>
+        </div>
+      )}
       <div className={styles["dugilan__products-categories_container"]}>
         <Categories className={styles["dugilan__categories"]} />
       </div>
       <div className={styles["dugilan__products-cards_container"]}>
         <Service />
-        <Cards templates={templates?.matches} isLoading={isLoading} />
+        <Cards templates={envatoTemplates} isLoading={loading} />
       </div>
     </div>
   );

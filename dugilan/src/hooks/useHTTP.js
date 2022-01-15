@@ -1,17 +1,16 @@
 import axios from "axios";
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 
-const useHTTP = (url, setState) => {
-  const getRequest = useCallback(
-    async ({ requestParams = "", requestHeader = {} }) => {
-      const data = await axios.get(url, {
-        headers: requestHeader,
-        params: requestParams,
-      });
-      setState(data.data);
-    },
-    [setState, url]
-  );
+const useHTTP = (url, requestHeader = {}, requestParams = "") => {
+  const [templates, setTemplates] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const getRequest = useCallback(async () => {
+    const data = await axios.get(url, {
+      headers: { Authorization: requestHeader },
+      params: requestParams,
+    });
+    return data.data;
+  }, [url, requestHeader, requestParams]);
   const postRequest = useCallback(
     async (body) => {
       try {
@@ -35,10 +34,26 @@ const useHTTP = (url, setState) => {
     },
     [url]
   );
+  useEffect(() => {
+    const loadTemplates = async () => {
+      try {
+        setIsLoading(true);
+        const data = await getRequest();
+        console.log(data);
+        setTemplates(data.matches);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    loadTemplates();
+  }, [url, getRequest]);
   return {
-    getRequest,
     postRequest,
     deleteRequest,
+    templates,
+    isLoading,
+    setIsLoading,
   };
 };
 
