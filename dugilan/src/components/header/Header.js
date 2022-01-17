@@ -10,7 +10,7 @@ const Header = () => {
   const { t } = useTranslation();
   const [inputValue, setInputValue] = useState("");
   return (
-    <div className={`${styles["dugilan__header"]} ${`section__padding`}`}>
+    <main className={`${styles["dugilan__header"]} ${`section__padding`}`}>
       <div className={styles["dugilan__header-content"]}>
         <h1 className="gradient__text ">{t("header.main-paragraph")}</h1>
         <form
@@ -44,7 +44,7 @@ const Header = () => {
       <div className={styles["dugilan__header-image"]}>
         <img src={headerImage} alt="Main" />
       </div>
-    </div>
+    </main>
   );
 };
 export default Header;

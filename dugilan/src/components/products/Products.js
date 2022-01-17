@@ -13,7 +13,7 @@ const Products = () => {
     apiRequestHeader.auth
   );
   return (
-    <div className={styles["dugilan__products"]}>
+    <section className={styles["dugilan__products"]}>
       {loading && (
         <div className="overlay">
           <div className="loader">
@@ -28,7 +28,7 @@ const Products = () => {
         <Service />
         <Cards templates={envatoTemplates} isLoading={loading} />
       </div>
-    </div>
+    </section>
   );
 };
 

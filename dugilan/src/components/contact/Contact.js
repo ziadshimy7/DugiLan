@@ -8,7 +8,7 @@ const Contact = () => {
   const { siteDirection } = useSiteDirection();
   const { t } = useTranslation();
   return (
-    <div className={styles["dugilan__contact"]}>
+    <section className={styles["dugilan__contact"]}>
       <div className={styles["dugilan__contact-content"]}>
         <h1>{t("contact.main-paragraph")}</h1>
         <p>{t("contact.secondary-paragraph")}</p>
@@ -22,7 +22,7 @@ const Contact = () => {
         src={contactImage}
         alt="Phone"
       />
-    </div>
+    </section>
   );
 };
 

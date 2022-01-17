@@ -64,7 +64,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", scrollHandler);
   }, [currentLanguage]);
   return (
-    <div
+    <nav
       className={`${styles["dugilan__navbar"]} ${
         isScrolled && styles["dugilan__navbar-scrolled"]
       }`}
@@ -79,7 +79,7 @@ const Navbar = () => {
       </div>
       <NavbarIcons />
       <NavbarMenu />
-    </div>
+    </nav>
   );
 };
 

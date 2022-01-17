@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next/";
 const Brand = () => {
   const { t } = useTranslation();
   return (
-    <div className={styles["dugilan__brand"]}>
+    <section className={styles["dugilan__brand"]}>
       <p>{t("brand.main-paragraph")}</p>
       <div className={styles["dugilan__brand-image_container"]}>
         <img src={acerImage} alt="Acer" />
@@ -18,7 +18,7 @@ const Brand = () => {
         <img src={forbesImage} alt="Forbes" />
         <img src={dellImage} alt="Dell" />
       </div>
-    </div>
+    </section>
   );
 };
 

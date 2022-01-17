@@ -11,7 +11,7 @@ const Footer = () => {
   });
   return (
     <>
-      <div className={styles["dugilan__footer"]}>
+      <footer className={styles["dugilan__footer"]}>
         <div className={styles["dugilan__footer-links_container"]}>
           <div className={styles["dugilan__footer-links"]}>
             <div className={styles["dugilan__footer-links_text"]}>
@@ -116,7 +116,7 @@ const Footer = () => {
             )}
           </div>
         </div>
-      </div>
+      </footer>
       <hr />
       <Copyrights />
     </>
