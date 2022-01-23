@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar } from "..";
+import { Footer, Navbar } from "..";
 import styles from "./Checkout.module.css";
 import OrderDetails from "./OrderDetails";
 const Checkout = () => {
@@ -24,6 +24,7 @@ const Checkout = () => {
         </div>
         <OrderDetails />
       </main>
+      <Footer />
     </>
   );
 };
