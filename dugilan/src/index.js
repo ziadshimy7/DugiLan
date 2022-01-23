@@ -10,6 +10,7 @@ import { Provider } from "react-redux";
 import store from "./store/store";
 import "./i18next.js";
 import SiteDirectionProvider from "./contexts/SiteDirectionContext";
+import Checkout from "./components/checkout/Checkout";
 const Cart = React.lazy(() => import("./components/cart/Cart"));
 const CategoriesTemplates = React.lazy(() =>
   import("./components/search/CategoriesTemplates")
@@ -29,6 +30,7 @@ ReactDOM.render(
                     path="/search/:term"
                     element={<CategoriesTemplates />}
                   ></Route>
+                  <Route path="/checkout" element={<Checkout />}></Route>
                   <Route path="*" element={<NotFound />}></Route>
                 </Routes>
               </BrowserRouter>

@@ -1,0 +1,58 @@
+.dugilan__checkout {
+  display: flex;
+  margin-left: 4rem;
+  margin-top: 4rem;
+  height: 100vh;
+}
+.dugilan__checkout-billing_address {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  flex: 1;
+}
+.dugilan__checkout-billing_address h1 {
+  font-family: var(--font-family);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 35px;
+  line-height: 44px;
+  color: #0b0b0c;
+}
+.dugilan__checkout-billing_address a {
+  font-family: var(--font-family);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 24px;
+  color: #0fafe9;
+}
+.dugilan__checkout-form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.dugilan__checkout-form input {
+  padding: 1rem 1rem;
+  width: 60%;
+  filter: drop-shadow(1px 4px 44px rgba(0, 0, 0, 0.03));
+  font-family: var(--font-family);
+  font-size: 15px;
+  line-height: 24px;
+  color: #8786ad;
+  position: relative;
+  outline: none;
+  border-radius: 0;
+  border: 1px solid #c0b6b6;
+}
+.dugilan__checkout-form input:first-child {
+  border: 1px solid #c0b6b6;
+  border-radius: 10px 10px 0px 0px;
+}
+.dugilan__checkout-form input:last-child {
+  border: 1px solid #c0b6b6;
+  border-radius: 0px 0px 10px 10px;
+}
+.dugilan__checkout-form input::placeholder {
+  text-align: left;
+  padding-left: 1rem;
+}

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Input.module.css";
 import { BiHide, BiShow } from "react-icons/bi";
-
 const Input = (props) => {
   const [showPassword, setShowPassword] = useState(false);
   const onShowPasswordHandler = (e) => {

@@ -75,7 +75,6 @@ const reducer = (state = initialState, action) => {
       };
     case "DECREASE_QUANTITY":
       const [currentCartItem] = action.payload.data;
-      console.log(currentCartItem);
       const currentCartItemIndex = state.cartItems.findIndex(
         (item) => item._id === currentCartItem._id
       );
