@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./OrdersSummary.module.css";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next/";
+import { Link } from "react-router-dom";
 const OrdersSummary = () => {
   const { t } = useTranslation();
   const cartState = useSelector((state) => state.cartReducer);
@@ -30,9 +31,9 @@ const OrdersSummary = () => {
           <p>${cartState?.totalAmount - totalAmountWithDiscount}</p>
         </li>
       </ul>
-      <button className={styles["dugilan__categories-button"]}>
+      <Link to="/checkout" className={styles["dugilan__categories-button"]}>
         {t("orders-summary.button")}
-      </button>
+      </Link>
     </div>
   );
 };

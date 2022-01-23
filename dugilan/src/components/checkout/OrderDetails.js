@@ -1,13 +1,15 @@
 import React from "react";
 import styles from "./OrderDetails.module.css";
 import { useTranslation } from "react-i18next/";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { IoMdClose, IoMdCheckboxOutline } from "react-icons/io";
 import creditCardImage from "../../assets/Cards.svg";
 import paypalImage from "../../assets/PayPal 1.svg";
+import { deleteItemFromCart } from "../../store/actions/cartActions";
 const OrderDetails = () => {
   const { t } = useTranslation();
   const cartState = useSelector((state) => state.cartReducer);
+  const dispatch = useDispatch();
   const discountState = useSelector((state) => state.discountReducer);
   const discountPercentage = Number(discountState?.discount) / 100;
   const totalAmountWithDiscount = (
@@ -23,7 +25,12 @@ const OrderDetails = () => {
             <li key={item._id} className={styles["dugilan__categories-order"]}>
               <img src={item.image} alt="" />
               <p>{item.name} Theme</p>
-              <IoMdClose className={styles["dugilan__categories-order_icon"]} />
+              <IoMdClose
+                onClick={(e) => {
+                  dispatch(deleteItemFromCart(item._id));
+                }}
+                className={styles["dugilan__categories-order_icon"]}
+              />
             </li>
           );
         })}

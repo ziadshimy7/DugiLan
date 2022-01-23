@@ -58,22 +58,21 @@ hr {
 .dugilan__categories-link_icon {
   margin: 0 1rem 0;
 }
-.dugilan__categories button {
+.dugilan__categories a {
   background: #0fafe9;
   border: 1px solid #0fafe9;
-  box-sizing: border-box;
   border-radius: 10px;
   font-family: var(--font-family);
-  font-style: normal;
   font-weight: 500;
   font-size: 15px;
-  line-height: 22px;
+  line-height: 45px;
   letter-spacing: -0.18px;
   text-transform: uppercase;
   color: #ffffff;
   cursor: pointer;
   min-height: 50px;
   margin-top: 1rem;
+  text-align: center;
 }
 .dugilan__categories-button:hover {
   background-color: rgba(15, 175, 233, 0.1);
