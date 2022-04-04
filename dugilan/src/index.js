@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
@@ -16,29 +16,27 @@ const CategoriesTemplates = React.lazy(() =>
   import("./components/search/CategoriesTemplates")
 );
 ReactDOM.render(
-  <Suspense fallback={"."}>
-    <React.StrictMode>
-      <Provider store={store}>
-        <ModalProvider>
-          <SiteDirectionProvider>
-            <AuthProvider>
-              <BrowserRouter>
-                <Routes>
-                  <Route path="/" exact element={<App />} />
-                  <Route path="/cart" element={<Cart />} />
-                  <Route
-                    path="/search/:term"
-                    element={<CategoriesTemplates />}
-                  ></Route>
-                  <Route path="/checkout" element={<Checkout />}></Route>
-                  <Route path="*" element={<NotFound />}></Route>
-                </Routes>
-              </BrowserRouter>
-            </AuthProvider>
-          </SiteDirectionProvider>
-        </ModalProvider>
-      </Provider>
-    </React.StrictMode>
-  </Suspense>,
+  <React.StrictMode>
+    <Provider store={store}>
+      <ModalProvider>
+        <SiteDirectionProvider>
+          <AuthProvider>
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" exact element={<App />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route
+                  path="/search/:term"
+                  element={<CategoriesTemplates />}
+                ></Route>
+                <Route path="/checkout" element={<Checkout />}></Route>
+                <Route path="*" element={<NotFound />}></Route>
+              </Routes>
+            </BrowserRouter>
+          </AuthProvider>
+        </SiteDirectionProvider>
+      </ModalProvider>
+    </Provider>
+  </React.StrictMode>,
   document.getElementById("root")
 );

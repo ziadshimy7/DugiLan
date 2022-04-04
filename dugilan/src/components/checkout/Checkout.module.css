@@ -32,7 +32,7 @@
 }
 .dugilan__checkout-form input {
   padding: 1rem 1rem;
-  width: 60%;
+  width: 75%;
   filter: drop-shadow(1px 4px 44px rgba(0, 0, 0, 0.03));
   font-family: var(--font-family);
   font-size: 15px;

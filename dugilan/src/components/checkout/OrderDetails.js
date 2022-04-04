@@ -15,7 +15,6 @@ const OrderDetails = () => {
   const totalAmountWithDiscount = (
     cartState?.totalAmount * discountPercentage
   ).toFixed();
-  console.log(cartState);
   return (
     <div className={styles["dugilan__orderDetails"]}>
       <h1>Your order</h1>
@@ -26,7 +25,7 @@ const OrderDetails = () => {
               <img src={item.image} alt="" />
               <p>{item.name} Theme</p>
               <IoMdClose
-                onClick={(e) => {
+                onClick={() => {
                   dispatch(deleteItemFromCart(item._id));
                 }}
                 className={styles["dugilan__categories-order_icon"]}
@@ -43,7 +42,7 @@ const OrderDetails = () => {
         <hr />
         <li className={styles["dugilan__categories-link"]}>
           <p>{t("orders-summary.discount-coupon")}</p>
-          <p>-${discountState?.totalAmountWithDiscount || 0}</p>
+          <p>-${totalAmountWithDiscount || 0}</p>
         </li>
         <hr />
 
