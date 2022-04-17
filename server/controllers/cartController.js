@@ -3,7 +3,6 @@ import mongoose from "mongoose";
 export const getCartItems = async (req, res) => {
   try {
     const cartItems = await CartItems.find({ username: req.query.username });
-    console.log(req.query["username"]);
     res.status(200).json(cartItems);
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -35,14 +34,12 @@ export const deleteCartItem = async (req, res) => {
   res.status(201).json(cartItem);
 };
 export const updateItemQuantity = async (req, res) => {
-  const { id, quantity, method } = req.body;
-  console.log(id, quantity);
-  console.log(req.body);
+  const { id, quantity } = req.body;
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send({ message: "INVALID_ID" });
   const cartItem = await CartItems.find({ _id: id });
   await CartItems.findByIdAndUpdate(id, {
-    $inc: { quantity: method === "INCREASE" ? 1 : -1 },
+    quantity: quantity,
   });
   res.status(201).json(cartItem);
 };
