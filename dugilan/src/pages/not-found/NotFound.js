@@ -1,5 +1,5 @@
 import React from "react";
-import { Footer, Navbar } from "..";
+import { Footer, Navbar } from "../../components/index";
 import styles from "./NotFound.module.css";
 import { Link } from "react-router-dom";
 import errorImage from "../../assets/error.png";

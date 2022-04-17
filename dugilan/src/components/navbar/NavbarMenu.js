@@ -83,7 +83,7 @@ const NavbarMenu = () => {
                 </div>
               </div>
               <div className={styles["dugilan__navbar-menu_icon-container"]}>
-                <Link to="cart">
+                <Link to="/cart">
                   <FiShoppingBag
                     className={`${styles["dugilan__navbar-menu-sign_icon"]} ${styles["dugilan__shake-animation"]}`}
                   />

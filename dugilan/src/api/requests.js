@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import debounce from "lodash.debounce";
 export const getRequest = async (
   { requestParams = "", requestHeader = {} },
   url
@@ -10,6 +10,8 @@ export const getRequest = async (
   });
   return data;
 };
+
+export const debounceGetRequest = debounce(getRequest, 1000);
 export const postRequest = async (url, body) => {
   try {
     const response = await axios.post(url, body ? body : null);
@@ -40,3 +42,4 @@ export const updateRequest = async (url, item, method) => {
     console.log(error);
   }
 };
+export const debouncedUpdateRequest = debounce(updateRequest, 1000);

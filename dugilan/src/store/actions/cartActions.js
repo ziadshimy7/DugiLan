@@ -2,7 +2,7 @@ import {
   getRequest,
   postRequest,
   deleteRequest,
-  updateRequest,
+  debouncedUpdateRequest,
 } from "../../api/requests";
 import { cartURL } from "../../components";
 export const getCart = (currentUser) => async (dispatch) => {
@@ -96,17 +96,17 @@ export const resetItemExistsError = () => (dispatch) => {
 };
 export const increaseItemQuantity = (item) => async (dispatch) => {
   try {
-    const data = await updateRequest(cartURL, item, "INCREASE");
     dispatch({
       type: "INCREASE_QUANTITY",
       payload: {
-        data,
+        item,
         error: {
           status: false,
           message: "",
         },
       },
     });
+    await debouncedUpdateRequest(cartURL, item, "INCREASE");
   } catch (error) {
     console.log(error);
   }
@@ -116,15 +116,15 @@ export const decreaseItemQuantity = (item) => async (dispatch) => {
     dispatch(deleteItemFromCart(item._id));
     return;
   }
-  const data = await updateRequest(cartURL, item, "DECREASE");
   dispatch({
     type: "DECREASE_QUANTITY",
     payload: {
-      data,
+      item,
       error: {
         status: false,
         message: "",
       },
     },
   });
+  await debouncedUpdateRequest(cartURL, item, "DECREASE");
 };

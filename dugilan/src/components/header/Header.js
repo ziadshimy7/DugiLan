@@ -27,6 +27,7 @@ const Header = () => {
               setInputValue(e.target.value);
             }}
             type="text"
+            value={inputValue}
             placeholder="e.g Responsive slider"
           />
 

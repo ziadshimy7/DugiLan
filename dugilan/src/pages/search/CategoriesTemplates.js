@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { Cards, envatoUrl, Footer, Navbar, apiRequestHeader } from "../index";
-import Modal from "../UI/modal/Modal";
+import {
+  Cards,
+  envatoUrl,
+  Footer,
+  Navbar,
+  apiRequestHeader,
+} from "../../components/index";
+import Modal from "../../components/UI/modal/Modal";
 import useHTTP from "../../hooks/useHTTP";
 import styles from "./CategoriesTemplates.module.css";
-import Pagination from "../UI/pagination/Pagination";
+import Pagination from "../../components/UI/pagination/Pagination";
 import GridLoader from "react-spinners/GridLoader";
-import ErrorModal from "../UI/modal/ErrorModal";
+import ErrorModal from "../../components/UI/modal/ErrorModal";
 import { useSelector } from "react-redux";
 import { useModal } from "../../contexts/ModalContext";
 import { resetItemExistsError } from "../../store/actions/cartActions";

@@ -55,7 +55,7 @@ const reducer = (state = initialState, action) => {
         totalAmount: state.totalAmount,
       };
     case "INCREASE_QUANTITY":
-      const currentItem = action.payload.data[0];
+      const currentItem = action.payload.item;
       const currentItemIndex = state.cartItems.findIndex(
         (item) => item._id === currentItem._id
       );
@@ -74,7 +74,8 @@ const reducer = (state = initialState, action) => {
         totalAmount: updatedTotalAmount,
       };
     case "DECREASE_QUANTITY":
-      const [currentCartItem] = action.payload.data;
+      console.log(action.payload.data);
+      const currentCartItem = action.payload.item;
       const currentCartItemIndex = state.cartItems.findIndex(
         (item) => item._id === currentCartItem._id
       );

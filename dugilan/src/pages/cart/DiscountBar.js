@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./DiscountBar.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { getDiscountCode } from "../../store/actions/discountActions";
-import ErrorModal from "../UI/modal/ErrorModal";
+import ErrorModal from "../../components/UI/modal/ErrorModal";
 import { resetDiscountErrors } from "../../store/actions/discountActions";
 import { useTranslation } from "react-i18next/";
 import { useSiteDirection } from "../../contexts/SiteDirectionContext";
