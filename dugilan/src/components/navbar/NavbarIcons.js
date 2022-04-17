@@ -54,7 +54,11 @@ const NavbarIcons = () => {
           />
         </Link>
         <div className={styles["dugilan__navbar-links_cart-icon"]}>
-          <p>{cartState?.cartItems?.length || 0}</p>
+          <p>
+            {cartState?.cartItems?.length > 0 && currentUser?.email
+              ? cartState.cartItems.length
+              : 0}
+          </p>
         </div>
       </div>
       <div className={styles["dugilan__navbar-links_icon-container"]}>
