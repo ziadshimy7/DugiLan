@@ -13,12 +13,12 @@ const Card = ({ template }) => {
   const [clickedAnimation, setClickAnimation] = useState(false);
   const { currentUser } = useAuth();
   const postRequestBody = {
-    id: template.id.toString(),
-    name: template.name.split(" ")[0],
+    id: template?.id.toString(),
+    name: template?.name.split(" ")[0],
     username: currentUser?.email,
-    price: Number(template.price_cents) / 100,
+    price: Number(template?.price_cents) / 100,
     quantity: 1,
-    image: template.previews.landscape_preview.landscape_url,
+    image: template?.previews?.landscape_preview?.landscape_url,
   };
   const onAddToCartHandler = (e) => {
     e.preventDefault();
@@ -36,16 +36,16 @@ const Card = ({ template }) => {
       <div className={styles["dugilan__card"]}>
         <a href={template.url}>
           <img
-            src={template.previews.landscape_preview.landscape_url}
+            src={template?.previews?.landscape_preview?.landscape_url}
             alt="test"
           />
         </a>
         <div className={styles["dugilan__card-content"]}>
-          <h4>{template.name}</h4>
+          <h4>{template?.name}</h4>
           <p>PHP, Wordpress</p>
           <div className={styles["dugilan__card-buttons"]}>
             <h6 className={styles["dugilan__card-content_price"]}>
-              ${template.price_cents / 100}
+              ${template?.price_cents / 100}
             </h6>
             <button
               onClick={(e) => {
